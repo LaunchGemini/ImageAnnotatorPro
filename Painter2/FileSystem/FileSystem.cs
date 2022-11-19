@@ -11,4 +11,6 @@ namespace Painter2.FileSystem
         /// <summary>
         /// 語言類型
         /// </summary>
-        publ
+        public static string Language { get; set; } = "Chinese";
+    }
+}
