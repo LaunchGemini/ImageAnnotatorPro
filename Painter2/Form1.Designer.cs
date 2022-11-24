@@ -529,3 +529,201 @@
             // 
             this.icon_Memory.BackgroundImage = global::Painter2.Properties.Resources.FileSize;
             this.icon_Memory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.icon_Memory.FlatAppearance.BorderSize = 0;
+            this.icon_Memory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icon_Memory.Location = new System.Drawing.Point(317, 6);
+            this.icon_Memory.Name = "icon_Memory";
+            this.icon_Memory.Size = new System.Drawing.Size(20, 20);
+            this.icon_Memory.TabIndex = 235;
+            this.icon_Memory.UseVisualStyleBackColor = true;
+            this.icon_Memory.Visible = false;
+            // 
+            // icon_ImageSize
+            // 
+            this.icon_ImageSize.BackgroundImage = global::Painter2.Properties.Resources.ImageSize;
+            this.icon_ImageSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.icon_ImageSize.FlatAppearance.BorderSize = 0;
+            this.icon_ImageSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icon_ImageSize.Location = new System.Drawing.Point(146, 6);
+            this.icon_ImageSize.Name = "icon_ImageSize";
+            this.icon_ImageSize.Size = new System.Drawing.Size(20, 20);
+            this.icon_ImageSize.TabIndex = 234;
+            this.icon_ImageSize.UseVisualStyleBackColor = true;
+            this.icon_ImageSize.Visible = false;
+            // 
+            // button_zoomOut
+            // 
+            this.button_zoomOut.BackgroundImage = global::Painter2.Properties.Resources.minus2;
+            this.button_zoomOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_zoomOut.FlatAppearance.BorderSize = 0;
+            this.button_zoomOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_zoomOut.Location = new System.Drawing.Point(718, 5);
+            this.button_zoomOut.Name = "button_zoomOut";
+            this.button_zoomOut.Size = new System.Drawing.Size(20, 20);
+            this.button_zoomOut.TabIndex = 230;
+            this.button_zoomOut.UseVisualStyleBackColor = true;
+            this.button_zoomOut.Click += new System.EventHandler(this.button_zoomOut_Click);
+            // 
+            // icon_Coordinate
+            // 
+            this.icon_Coordinate.AutoSize = true;
+            this.icon_Coordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icon_Coordinate.Image = global::Painter2.Properties.Resources.CursorLocation2;
+            this.icon_Coordinate.Location = new System.Drawing.Point(2, 6);
+            this.icon_Coordinate.Name = "icon_Coordinate";
+            this.icon_Coordinate.Size = new System.Drawing.Size(21, 20);
+            this.icon_Coordinate.TabIndex = 233;
+            this.icon_Coordinate.Text = "   ";
+            // 
+            // button_zoomIn
+            // 
+            this.button_zoomIn.BackgroundImage = global::Painter2.Properties.Resources.plus2;
+            this.button_zoomIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_zoomIn.FlatAppearance.BorderSize = 0;
+            this.button_zoomIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_zoomIn.Location = new System.Drawing.Point(849, 5);
+            this.button_zoomIn.Name = "button_zoomIn";
+            this.button_zoomIn.Size = new System.Drawing.Size(20, 20);
+            this.button_zoomIn.TabIndex = 229;
+            this.button_zoomIn.UseVisualStyleBackColor = true;
+            this.button_zoomIn.Click += new System.EventHandler(this.button_zoomIn_Click);
+            // 
+            // btnLoadImg
+            // 
+            this.btnLoadImg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLoadImg.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnLoadImg.Image = global::Painter2.Properties.Resources.picture32;
+            this.btnLoadImg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLoadImg.Location = new System.Drawing.Point(7, 25);
+            this.btnLoadImg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadImg.Name = "btnLoadImg";
+            this.btnLoadImg.Size = new System.Drawing.Size(75, 63);
+            this.btnLoadImg.TabIndex = 75;
+            this.btnLoadImg.Text = "載入影像";
+            this.btnLoadImg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLoadImg.UseVisualStyleBackColor = true;
+            this.btnLoadImg.Click += new System.EventHandler(this.btnLoadImg_Click);
+            // 
+            // radioButton_penPoint
+            // 
+            this.radioButton_penPoint.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_penPoint.AutoSize = true;
+            this.radioButton_penPoint.BackgroundImage = global::Painter2.Properties.Resources.Pen;
+            this.radioButton_penPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_penPoint.Checked = true;
+            this.radioButton_penPoint.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_penPoint.Location = new System.Drawing.Point(5, 5);
+            this.radioButton_penPoint.Name = "radioButton_penPoint";
+            this.radioButton_penPoint.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_penPoint.TabIndex = 234;
+            this.radioButton_penPoint.TabStop = true;
+            this.radioButton_penPoint.Tag = "penPoint";
+            this.radioButton_penPoint.Text = "   ";
+            this.radioButton_penPoint.UseVisualStyleBackColor = true;
+            this.radioButton_penPoint.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_eraser
+            // 
+            this.radioButton_eraser.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_eraser.AutoSize = true;
+            this.radioButton_eraser.BackgroundImage = global::Painter2.Properties.Resources.eraser2;
+            this.radioButton_eraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_eraser.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_eraser.Location = new System.Drawing.Point(45, 5);
+            this.radioButton_eraser.Name = "radioButton_eraser";
+            this.radioButton_eraser.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_eraser.TabIndex = 235;
+            this.radioButton_eraser.Tag = "eraser";
+            this.radioButton_eraser.Text = "   ";
+            this.radioButton_eraser.UseVisualStyleBackColor = true;
+            this.radioButton_eraser.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // panel_Tool
+            // 
+            this.panel_Tool.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Tool.Controls.Add(this.radioButton_selectAnyShape);
+            this.panel_Tool.Controls.Add(this.radioButton_selectRect);
+            this.panel_Tool.Controls.Add(this.radioButton_ellipse_fill);
+            this.panel_Tool.Controls.Add(this.radioButton_ellipse);
+            this.panel_Tool.Controls.Add(this.radioButton_circle_fill);
+            this.panel_Tool.Controls.Add(this.radioButton_circle);
+            this.panel_Tool.Controls.Add(this.radioButton_rectangle_fill);
+            this.panel_Tool.Controls.Add(this.radioButton_rectangle);
+            this.panel_Tool.Controls.Add(this.radioButton_eraser);
+            this.panel_Tool.Controls.Add(this.radioButton_penPoint);
+            this.panel_Tool.Location = new System.Drawing.Point(7, 215);
+            this.panel_Tool.Name = "panel_Tool";
+            this.panel_Tool.Size = new System.Drawing.Size(85, 205);
+            this.panel_Tool.TabIndex = 233;
+            // 
+            // radioButton_selectAnyShape
+            // 
+            this.radioButton_selectAnyShape.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_selectAnyShape.AutoSize = true;
+            this.radioButton_selectAnyShape.BackgroundImage = global::Painter2.Properties.Resources.任意範圍選取;
+            this.radioButton_selectAnyShape.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_selectAnyShape.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_selectAnyShape.Location = new System.Drawing.Point(45, 165);
+            this.radioButton_selectAnyShape.Name = "radioButton_selectAnyShape";
+            this.radioButton_selectAnyShape.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_selectAnyShape.TabIndex = 243;
+            this.radioButton_selectAnyShape.Tag = "";
+            this.radioButton_selectAnyShape.Text = "   ";
+            this.radioButton_selectAnyShape.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_selectRect
+            // 
+            this.radioButton_selectRect.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_selectRect.AutoSize = true;
+            this.radioButton_selectRect.BackgroundImage = global::Painter2.Properties.Resources.矩形選取;
+            this.radioButton_selectRect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_selectRect.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_selectRect.Location = new System.Drawing.Point(5, 165);
+            this.radioButton_selectRect.Name = "radioButton_selectRect";
+            this.radioButton_selectRect.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_selectRect.TabIndex = 242;
+            this.radioButton_selectRect.Tag = "selectRect";
+            this.radioButton_selectRect.Text = "   ";
+            this.radioButton_selectRect.UseVisualStyleBackColor = true;
+            this.radioButton_selectRect.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_ellipse_fill
+            // 
+            this.radioButton_ellipse_fill.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_ellipse_fill.AutoSize = true;
+            this.radioButton_ellipse_fill.BackgroundImage = global::Painter2.Properties.Resources.ellipse_fill_32;
+            this.radioButton_ellipse_fill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_ellipse_fill.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_ellipse_fill.Location = new System.Drawing.Point(45, 125);
+            this.radioButton_ellipse_fill.Name = "radioButton_ellipse_fill";
+            this.radioButton_ellipse_fill.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_ellipse_fill.TabIndex = 241;
+            this.radioButton_ellipse_fill.Tag = "ellipse_fill";
+            this.radioButton_ellipse_fill.Text = "   ";
+            this.radioButton_ellipse_fill.UseVisualStyleBackColor = true;
+            this.radioButton_ellipse_fill.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_ellipse
+            // 
+            this.radioButton_ellipse.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_ellipse.AutoSize = true;
+            this.radioButton_ellipse.BackgroundImage = global::Painter2.Properties.Resources.ellipse_32;
+            this.radioButton_ellipse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_ellipse.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_ellipse.Location = new System.Drawing.Point(5, 125);
+            this.radioButton_ellipse.Name = "radioButton_ellipse";
+            this.radioButton_ellipse.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_ellipse.TabIndex = 240;
+            this.radioButton_ellipse.Tag = "ellipse";
+            this.radioButton_ellipse.Text = "   ";
+            this.radioButton_ellipse.UseVisualStyleBackColor = true;
+            this.radioButton_ellipse.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_circle_fill
+            // 
+            this.radioButton_circle_fill.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_circle_fill.AutoSize = true;
+            this.radioButton_circle_fill.BackgroundImage = global::Painter2.Properties.Resources.circle_fill;
+            this.radioButton_circle_fill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_circle_fill.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_circle_fill.Location = new System.Drawing.Point(45, 85);
