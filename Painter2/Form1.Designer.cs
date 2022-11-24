@@ -327,3 +327,205 @@
             this.button_SetColor.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_SetColor.ForeColor = System.Drawing.Color.Transparent;
             this.button_SetColor.Location = new System.Drawing.Point(115, 366);
+            this.button_SetColor.Name = "button_SetColor";
+            this.button_SetColor.Size = new System.Drawing.Size(40, 40);
+            this.button_SetColor.TabIndex = 184;
+            this.button_SetColor.UseVisualStyleBackColor = false;
+            this.button_SetColor.BackColorChanged += new System.EventHandler(this.button_SetColor_BackColorChanged);
+            this.button_SetColor.Click += new System.EventHandler(this.button_SetColor_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(102, 347);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.TabIndex = 183;
+            this.label4.Text = "標註顏色";
+            // 
+            // button_ClearAll
+            // 
+            this.button_ClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ClearAll.Location = new System.Drawing.Point(12, 450);
+            this.button_ClearAll.Name = "button_ClearAll";
+            this.button_ClearAll.Size = new System.Drawing.Size(68, 25);
+            this.button_ClearAll.TabIndex = 182;
+            this.button_ClearAll.Text = "清空";
+            this.button_ClearAll.UseVisualStyleBackColor = true;
+            this.button_ClearAll.Click += new System.EventHandler(this.button_ClearAll_Click);
+            // 
+            // label_Coordinate
+            // 
+            this.label_Coordinate.AutoSize = true;
+            this.label_Coordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Coordinate.Location = new System.Drawing.Point(22, 5);
+            this.label_Coordinate.Name = "label_Coordinate";
+            this.label_Coordinate.Size = new System.Drawing.Size(73, 20);
+            this.label_Coordinate.TabIndex = 195;
+            this.label_Coordinate.Text = "像素座標";
+            // 
+            // label_Coordinate_Cursor
+            // 
+            this.label_Coordinate_Cursor.AutoSize = true;
+            this.label_Coordinate_Cursor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Coordinate_Cursor.Location = new System.Drawing.Point(23, 29);
+            this.label_Coordinate_Cursor.Name = "label_Coordinate_Cursor";
+            this.label_Coordinate_Cursor.Size = new System.Drawing.Size(105, 20);
+            this.label_Coordinate_Cursor.TabIndex = 196;
+            this.label_Coordinate_Cursor.Text = "滑鼠游標座標";
+            this.label_Coordinate_Cursor.Visible = false;
+            // 
+            // radioButton_OrigImg
+            // 
+            this.radioButton_OrigImg.AutoSize = true;
+            this.radioButton_OrigImg.Checked = true;
+            this.radioButton_OrigImg.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.radioButton_OrigImg.Location = new System.Drawing.Point(13, 98);
+            this.radioButton_OrigImg.Name = "radioButton_OrigImg";
+            this.radioButton_OrigImg.Size = new System.Drawing.Size(52, 21);
+            this.radioButton_OrigImg.TabIndex = 197;
+            this.radioButton_OrigImg.TabStop = true;
+            this.radioButton_OrigImg.Text = "原圖";
+            this.radioButton_OrigImg.UseVisualStyleBackColor = true;
+            this.radioButton_OrigImg.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // radioButton_DrawImg
+            // 
+            this.radioButton_DrawImg.AutoSize = true;
+            this.radioButton_DrawImg.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.radioButton_DrawImg.Location = new System.Drawing.Point(13, 125);
+            this.radioButton_DrawImg.Name = "radioButton_DrawImg";
+            this.radioButton_DrawImg.Size = new System.Drawing.Size(78, 21);
+            this.radioButton_DrawImg.TabIndex = 198;
+            this.radioButton_DrawImg.TabStop = true;
+            this.radioButton_DrawImg.Text = "標註影像";
+            this.radioButton_DrawImg.UseVisualStyleBackColor = true;
+            this.radioButton_DrawImg.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // button_Clear
+            // 
+            this.button_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Clear.Location = new System.Drawing.Point(12, 423);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(68, 25);
+            this.button_Clear.TabIndex = 199;
+            this.button_Clear.Text = "移除";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            // 
+            // label_Size
+            // 
+            this.label_Size.AutoSize = true;
+            this.label_Size.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Size.Location = new System.Drawing.Point(167, 5);
+            this.label_Size.Name = "label_Size";
+            this.label_Size.Size = new System.Drawing.Size(73, 20);
+            this.label_Size.TabIndex = 200;
+            this.label_Size.Text = "影像尺寸";
+            this.label_Size.Visible = false;
+            // 
+            // label_Memory
+            // 
+            this.label_Memory.AutoSize = true;
+            this.label_Memory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Memory.Location = new System.Drawing.Point(338, 5);
+            this.label_Memory.Name = "label_Memory";
+            this.label_Memory.Size = new System.Drawing.Size(73, 20);
+            this.label_Memory.TabIndex = 201;
+            this.label_Memory.Text = "影像大小";
+            this.label_Memory.Visible = false;
+            // 
+            // txt_GrayValue
+            // 
+            this.txt_GrayValue.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txt_GrayValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_GrayValue.Location = new System.Drawing.Point(539, 33);
+            this.txt_GrayValue.Name = "txt_GrayValue";
+            this.txt_GrayValue.ReadOnly = true;
+            this.txt_GrayValue.Size = new System.Drawing.Size(115, 27);
+            this.txt_GrayValue.TabIndex = 226;
+            this.txt_GrayValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(483, 36);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(57, 19);
+            this.label20.TabIndex = 225;
+            this.label20.Text = "灰階值:";
+            // 
+            // txt_RGBValue
+            // 
+            this.txt_RGBValue.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txt_RGBValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_RGBValue.Location = new System.Drawing.Point(539, 3);
+            this.txt_RGBValue.Name = "txt_RGBValue";
+            this.txt_RGBValue.ReadOnly = true;
+            this.txt_RGBValue.Size = new System.Drawing.Size(115, 27);
+            this.txt_RGBValue.TabIndex = 224;
+            this.txt_RGBValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(474, 6);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 19);
+            this.label19.TabIndex = 223;
+            this.label19.Text = "[R, G, B]:";
+            // 
+            // trackBar_zoom
+            // 
+            this.trackBar_zoom.LargeChange = 1;
+            this.trackBar_zoom.Location = new System.Drawing.Point(741, 4);
+            this.trackBar_zoom.Name = "trackBar_zoom";
+            this.trackBar_zoom.Size = new System.Drawing.Size(104, 45);
+            this.trackBar_zoom.TabIndex = 227;
+            this.trackBar_zoom.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar_zoom.Value = 3;
+            this.trackBar_zoom.ValueChanged += new System.EventHandler(this.trackBar_zoom_ValueChanged);
+            // 
+            // label_zoom
+            // 
+            this.label_zoom.AutoSize = true;
+            this.label_zoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_zoom.Location = new System.Drawing.Point(660, 5);
+            this.label_zoom.Name = "label_zoom";
+            this.label_zoom.Size = new System.Drawing.Size(54, 20);
+            this.label_zoom.TabIndex = 231;
+            this.label_zoom.Text = " 100%";
+            // 
+            // panel_Info
+            // 
+            this.panel_Info.BackColor = System.Drawing.SystemColors.Window;
+            this.panel_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Info.Controls.Add(this.icon_Memory);
+            this.panel_Info.Controls.Add(this.icon_ImageSize);
+            this.panel_Info.Controls.Add(this.button_zoomOut);
+            this.panel_Info.Controls.Add(this.icon_Coordinate);
+            this.panel_Info.Controls.Add(this.txt_RGBValue);
+            this.panel_Info.Controls.Add(this.label_Coordinate);
+            this.panel_Info.Controls.Add(this.label_zoom);
+            this.panel_Info.Controls.Add(this.label_Coordinate_Cursor);
+            this.panel_Info.Controls.Add(this.label_Size);
+            this.panel_Info.Controls.Add(this.button_zoomIn);
+            this.panel_Info.Controls.Add(this.label_Memory);
+            this.panel_Info.Controls.Add(this.trackBar_zoom);
+            this.panel_Info.Controls.Add(this.label19);
+            this.panel_Info.Controls.Add(this.txt_GrayValue);
+            this.panel_Info.Controls.Add(this.label20);
+            this.panel_Info.Location = new System.Drawing.Point(185, 950);
+            this.panel_Info.Name = "panel_Info";
+            this.panel_Info.Size = new System.Drawing.Size(880, 65);
+            this.panel_Info.TabIndex = 232;
+            // 
+            // icon_Memory
+            // 
+            this.icon_Memory.BackgroundImage = global::Painter2.Properties.Resources.FileSize;
+            this.icon_Memory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
