@@ -958,3 +958,233 @@
             this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.儲存設定ToolStripMenuItem,
             this.語言設定ToolStripMenuItem,
+            this.標註顏色批次轉換ToolStripMenuItem});
+            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.工具ToolStripMenuItem.Text = "工具";
+            // 
+            // 儲存設定ToolStripMenuItem
+            // 
+            this.儲存設定ToolStripMenuItem.Image = global::Painter2.Properties.Resources.settings_32;
+            this.儲存設定ToolStripMenuItem.Name = "儲存設定ToolStripMenuItem";
+            this.儲存設定ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.儲存設定ToolStripMenuItem.Text = "儲存設定";
+            this.儲存設定ToolStripMenuItem.Click += new System.EventHandler(this.儲存設定ToolStripMenuItem_Click);
+            // 
+            // 語言設定ToolStripMenuItem
+            // 
+            this.語言設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.中文ToolStripMenuItem,
+            this.英文ToolStripMenuItem});
+            this.語言設定ToolStripMenuItem.Image = global::Painter2.Properties.Resources.language_64;
+            this.語言設定ToolStripMenuItem.Name = "語言設定ToolStripMenuItem";
+            this.語言設定ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.語言設定ToolStripMenuItem.Text = "語言設定";
+            // 
+            // 中文ToolStripMenuItem
+            // 
+            this.中文ToolStripMenuItem.Name = "中文ToolStripMenuItem";
+            this.中文ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.中文ToolStripMenuItem.Text = "中文";
+            this.中文ToolStripMenuItem.Click += new System.EventHandler(this.中文ToolStripMenuItem_Click);
+            // 
+            // 英文ToolStripMenuItem
+            // 
+            this.英文ToolStripMenuItem.Name = "英文ToolStripMenuItem";
+            this.英文ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.英文ToolStripMenuItem.Text = "English";
+            this.英文ToolStripMenuItem.Click += new System.EventHandler(this.英文ToolStripMenuItem_Click);
+            // 
+            // 標註顏色批次轉換ToolStripMenuItem
+            // 
+            this.標註顏色批次轉換ToolStripMenuItem.Image = global::Painter2.Properties.Resources.Color_32;
+            this.標註顏色批次轉換ToolStripMenuItem.Name = "標註顏色批次轉換ToolStripMenuItem";
+            this.標註顏色批次轉換ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.標註顏色批次轉換ToolStripMenuItem.Text = "標註顏色批次轉換";
+            this.標註顏色批次轉換ToolStripMenuItem.Click += new System.EventHandler(this.標註顏色批次轉換ToolStripMenuItem_Click);
+            // 
+            // 說明ToolStripMenuItem
+            // 
+            this.說明ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.快捷鍵ToolStripMenuItem});
+            this.說明ToolStripMenuItem.Name = "說明ToolStripMenuItem";
+            this.說明ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.說明ToolStripMenuItem.Text = "說明";
+            // 
+            // 快捷鍵ToolStripMenuItem
+            // 
+            this.快捷鍵ToolStripMenuItem.Image = global::Painter2.Properties.Resources.keyboard_32;
+            this.快捷鍵ToolStripMenuItem.Name = "快捷鍵ToolStripMenuItem";
+            this.快捷鍵ToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.快捷鍵ToolStripMenuItem.Text = "快捷鍵";
+            // 
+            // label_Version
+            // 
+            this.label_Version.AutoSize = true;
+            this.label_Version.BackColor = System.Drawing.Color.Transparent;
+            this.label_Version.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Version.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label_Version.Location = new System.Drawing.Point(1066, 2);
+            this.label_Version.Name = "label_Version";
+            this.label_Version.Size = new System.Drawing.Size(53, 20);
+            this.label_Version.TabIndex = 245;
+            this.label_Version.Text = " 版本:";
+            // 
+            // button_dispImg
+            // 
+            this.button_dispImg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_dispImg.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button_dispImg.Image = global::Painter2.Properties.Resources.原圖_24;
+            this.button_dispImg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_dispImg.Location = new System.Drawing.Point(97, 91);
+            this.button_dispImg.Margin = new System.Windows.Forms.Padding(2);
+            this.button_dispImg.Name = "button_dispImg";
+            this.button_dispImg.Size = new System.Drawing.Size(75, 55);
+            this.button_dispImg.TabIndex = 246;
+            this.button_dispImg.Text = "原圖";
+            this.button_dispImg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_dispImg.UseVisualStyleBackColor = true;
+            this.button_dispImg.Click += new System.EventHandler(this.button_dispImg_Click);
+            // 
+            // label_VersionNum
+            // 
+            this.label_VersionNum.AutoSize = true;
+            this.label_VersionNum.BackColor = System.Drawing.Color.Transparent;
+            this.label_VersionNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_VersionNum.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label_VersionNum.Location = new System.Drawing.Point(1136, 2);
+            this.label_VersionNum.Name = "label_VersionNum";
+            this.label_VersionNum.Size = new System.Drawing.Size(15, 20);
+            this.label_VersionNum.TabIndex = 247;
+            this.label_VersionNum.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(97, 299);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 16);
+            this.label3.TabIndex = 248;
+            this.label3.Text = "已標註顏色";
+            // 
+            // cbx_LabelledColor
+            // 
+            this.cbx_LabelledColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_LabelledColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_LabelledColor.FormattingEnabled = true;
+            this.cbx_LabelledColor.Location = new System.Drawing.Point(95, 321);
+            this.cbx_LabelledColor.Name = "cbx_LabelledColor";
+            this.cbx_LabelledColor.Size = new System.Drawing.Size(86, 21);
+            this.cbx_LabelledColor.TabIndex = 249;
+            this.cbx_LabelledColor.SelectedIndexChanged += new System.EventHandler(this.cbx_LabelledColor_SelectedIndexChanged);
+            // 
+            // checkBox_Alpha
+            // 
+            this.checkBox_Alpha.AutoSize = true;
+            this.checkBox_Alpha.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
+            this.checkBox_Alpha.Location = new System.Drawing.Point(3, 149);
+            this.checkBox_Alpha.Name = "checkBox_Alpha";
+            this.checkBox_Alpha.Size = new System.Drawing.Size(118, 21);
+            this.checkBox_Alpha.TabIndex = 251;
+            this.checkBox_Alpha.Text = "調整顯示透明度";
+            this.checkBox_Alpha.UseVisualStyleBackColor = true;
+            this.checkBox_Alpha.CheckedChanged += new System.EventHandler(this.checkBox_Alpha_CheckedChanged);
+            // 
+            // nud_Alpha
+            // 
+            this.nud_Alpha.Enabled = false;
+            this.nud_Alpha.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
+            this.nud_Alpha.Location = new System.Drawing.Point(118, 148);
+            this.nud_Alpha.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nud_Alpha.Name = "nud_Alpha";
+            this.nud_Alpha.Size = new System.Drawing.Size(57, 25);
+            this.nud_Alpha.TabIndex = 252;
+            this.nud_Alpha.Tag = "";
+            this.nud_Alpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_Alpha.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nud_Alpha.ValueChanged += new System.EventHandler(this.nud_Alpha_ValueChanged);
+            // 
+            // button_LoadBatchImages2
+            // 
+            this.button_LoadBatchImages2.Enabled = false;
+            this.button_LoadBatchImages2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_LoadBatchImages2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_LoadBatchImages2.Image = global::Painter2.Properties.Resources.folder32;
+            this.button_LoadBatchImages2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_LoadBatchImages2.Location = new System.Drawing.Point(178, 25);
+            this.button_LoadBatchImages2.Margin = new System.Windows.Forms.Padding(2);
+            this.button_LoadBatchImages2.Name = "button_LoadBatchImages2";
+            this.button_LoadBatchImages2.Size = new System.Drawing.Size(80, 63);
+            this.button_LoadBatchImages2.TabIndex = 253;
+            this.button_LoadBatchImages2.Text = "批次載入2";
+            this.button_LoadBatchImages2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_LoadBatchImages2.UseVisualStyleBackColor = true;
+            this.button_LoadBatchImages2.Visible = false;
+            this.button_LoadBatchImages2.Click += new System.EventHandler(this.button_LoadBatchImages2_Click);
+            // 
+            // panel_Dir2
+            // 
+            this.panel_Dir2.AutoScroll = true;
+            this.panel_Dir2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_Dir2.Controls.Add(this.pictureBox_Dir2);
+            this.panel_Dir2.Enabled = false;
+            this.panel_Dir2.Location = new System.Drawing.Point(332, 12);
+            this.panel_Dir2.Name = "panel_Dir2";
+            this.panel_Dir2.Size = new System.Drawing.Size(210, 210);
+            this.panel_Dir2.TabIndex = 254;
+            this.panel_Dir2.Visible = false;
+            // 
+            // button_Color_changed
+            // 
+            this.button_Color_changed.BackColor = System.Drawing.Color.Black;
+            this.button_Color_changed.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_Color_changed.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Color_changed.Location = new System.Drawing.Point(115, 498);
+            this.button_Color_changed.Name = "button_Color_changed";
+            this.button_Color_changed.Size = new System.Drawing.Size(40, 40);
+            this.button_Color_changed.TabIndex = 256;
+            this.button_Color_changed.UseVisualStyleBackColor = false;
+            this.button_Color_changed.Click += new System.EventHandler(this.button_SetColor_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(102, 479);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.TabIndex = 255;
+            this.label5.Text = "轉換顏色";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1264, 1045);
+            this.Controls.Add(this.button_Color_changed);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel_Dir2);
+            this.Controls.Add(this.button_LoadBatchImages2);
+            this.Controls.Add(this.nud_Alpha);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.checkBox_Alpha);
+            this.Controls.Add(this.groupBox_ColorList);
+            this.Controls.Add(this.cbx_LabelledColor);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_VersionNum);
+            this.Controls.Add(this.label_Version);
+            this.Controls.Add(this.button_dispImg);
+            this.Controls.Add(this.panel_BatchImages);
+            this.Controls.Add(this.button_Redo);
+            this.Controls.Add(this.button_Recovery);
+            this.Controls.Add(this.button_SavePath);
+            this.Controls.Add(this.button_Save);
