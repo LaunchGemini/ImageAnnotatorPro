@@ -727,3 +727,234 @@
             this.radioButton_circle_fill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButton_circle_fill.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
             this.radioButton_circle_fill.Location = new System.Drawing.Point(45, 85);
+            this.radioButton_circle_fill.Name = "radioButton_circle_fill";
+            this.radioButton_circle_fill.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_circle_fill.TabIndex = 239;
+            this.radioButton_circle_fill.Tag = "circle_fill";
+            this.radioButton_circle_fill.Text = "   ";
+            this.radioButton_circle_fill.UseVisualStyleBackColor = true;
+            this.radioButton_circle_fill.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_circle
+            // 
+            this.radioButton_circle.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_circle.AutoSize = true;
+            this.radioButton_circle.BackgroundImage = global::Painter2.Properties.Resources.circle;
+            this.radioButton_circle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_circle.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_circle.Location = new System.Drawing.Point(5, 85);
+            this.radioButton_circle.Name = "radioButton_circle";
+            this.radioButton_circle.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_circle.TabIndex = 238;
+            this.radioButton_circle.Tag = "circle";
+            this.radioButton_circle.Text = "   ";
+            this.radioButton_circle.UseVisualStyleBackColor = true;
+            this.radioButton_circle.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_rectangle_fill
+            // 
+            this.radioButton_rectangle_fill.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_rectangle_fill.AutoSize = true;
+            this.radioButton_rectangle_fill.BackgroundImage = global::Painter2.Properties.Resources.rectangle_fill;
+            this.radioButton_rectangle_fill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_rectangle_fill.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_rectangle_fill.Location = new System.Drawing.Point(45, 45);
+            this.radioButton_rectangle_fill.Name = "radioButton_rectangle_fill";
+            this.radioButton_rectangle_fill.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_rectangle_fill.TabIndex = 237;
+            this.radioButton_rectangle_fill.Tag = "rectangle_fill";
+            this.radioButton_rectangle_fill.Text = "   ";
+            this.radioButton_rectangle_fill.UseVisualStyleBackColor = true;
+            this.radioButton_rectangle_fill.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // radioButton_rectangle
+            // 
+            this.radioButton_rectangle.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton_rectangle.AutoSize = true;
+            this.radioButton_rectangle.BackgroundImage = global::Painter2.Properties.Resources.rectangle;
+            this.radioButton_rectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radioButton_rectangle.Font = new System.Drawing.Font("微軟正黑體", 14.25F);
+            this.radioButton_rectangle.Location = new System.Drawing.Point(5, 45);
+            this.radioButton_rectangle.Name = "radioButton_rectangle";
+            this.radioButton_rectangle.Size = new System.Drawing.Size(35, 34);
+            this.radioButton_rectangle.TabIndex = 236;
+            this.radioButton_rectangle.Tag = "rectangle";
+            this.radioButton_rectangle.Text = "   ";
+            this.radioButton_rectangle.UseVisualStyleBackColor = true;
+            this.radioButton_rectangle.CheckedChanged += new System.EventHandler(this.radioButton_Tool_CheckedChanged);
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "test.png");
+            // 
+            // listViewImages
+            // 
+            this.listViewImages.HideSelection = false;
+            this.listViewImages.LargeImageList = this.imageList;
+            this.listViewImages.Location = new System.Drawing.Point(6, 65);
+            this.listViewImages.Name = "listViewImages";
+            this.listViewImages.Size = new System.Drawing.Size(176, 572);
+            this.listViewImages.TabIndex = 234;
+            this.listViewImages.UseCompatibleStateImageBehavior = false;
+            this.listViewImages.SelectedIndexChanged += new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+            // 
+            // button_LoadBatchImages
+            // 
+            this.button_LoadBatchImages.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_LoadBatchImages.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_LoadBatchImages.Image = global::Painter2.Properties.Resources.folder32;
+            this.button_LoadBatchImages.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_LoadBatchImages.Location = new System.Drawing.Point(97, 25);
+            this.button_LoadBatchImages.Margin = new System.Windows.Forms.Padding(2);
+            this.button_LoadBatchImages.Name = "button_LoadBatchImages";
+            this.button_LoadBatchImages.Size = new System.Drawing.Size(75, 63);
+            this.button_LoadBatchImages.TabIndex = 235;
+            this.button_LoadBatchImages.Text = "批次載入";
+            this.button_LoadBatchImages.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_LoadBatchImages.UseVisualStyleBackColor = true;
+            this.button_LoadBatchImages.Click += new System.EventHandler(this.button_LoadBatchImages_Click);
+            // 
+            // button_Save
+            // 
+            this.button_Save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_Save.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_Save.Image = global::Painter2.Properties.Resources.save32;
+            this.button_Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_Save.Location = new System.Drawing.Point(97, 599);
+            this.button_Save.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Save.Name = "button_Save";
+            this.button_Save.Size = new System.Drawing.Size(75, 63);
+            this.button_Save.TabIndex = 236;
+            this.button_Save.Text = "儲存";
+            this.button_Save.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
+            // 
+            // button_SavePath
+            // 
+            this.button_SavePath.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_SavePath.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_SavePath.Image = global::Painter2.Properties.Resources.儲存路徑_32;
+            this.button_SavePath.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_SavePath.Location = new System.Drawing.Point(7, 599);
+            this.button_SavePath.Margin = new System.Windows.Forms.Padding(2);
+            this.button_SavePath.Name = "button_SavePath";
+            this.button_SavePath.Size = new System.Drawing.Size(75, 63);
+            this.button_SavePath.TabIndex = 238;
+            this.button_SavePath.Text = "儲存路徑";
+            this.button_SavePath.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_SavePath.UseVisualStyleBackColor = true;
+            this.button_SavePath.Click += new System.EventHandler(this.button_SavePath_Click);
+            // 
+            // button_NextImage
+            // 
+            this.button_NextImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_NextImage.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_NextImage.Image = global::Painter2.Properties.Resources.next_24;
+            this.button_NextImage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_NextImage.Location = new System.Drawing.Point(102, 5);
+            this.button_NextImage.Margin = new System.Windows.Forms.Padding(2);
+            this.button_NextImage.Name = "button_NextImage";
+            this.button_NextImage.Size = new System.Drawing.Size(80, 55);
+            this.button_NextImage.TabIndex = 239;
+            this.button_NextImage.Text = "下一張";
+            this.button_NextImage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_NextImage.UseVisualStyleBackColor = true;
+            this.button_NextImage.Click += new System.EventHandler(this.button_NextImage_Click);
+            // 
+            // button_PreviousImage
+            // 
+            this.button_PreviousImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_PreviousImage.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_PreviousImage.Image = global::Painter2.Properties.Resources.previous_24;
+            this.button_PreviousImage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_PreviousImage.Location = new System.Drawing.Point(6, 5);
+            this.button_PreviousImage.Margin = new System.Windows.Forms.Padding(2);
+            this.button_PreviousImage.Name = "button_PreviousImage";
+            this.button_PreviousImage.Size = new System.Drawing.Size(80, 55);
+            this.button_PreviousImage.TabIndex = 240;
+            this.button_PreviousImage.Text = "上一張";
+            this.button_PreviousImage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_PreviousImage.UseVisualStyleBackColor = true;
+            this.button_PreviousImage.Click += new System.EventHandler(this.button_PreviousImage_Click);
+            // 
+            // button_Recovery
+            // 
+            this.button_Recovery.BackColor = System.Drawing.SystemColors.Control;
+            this.button_Recovery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_Recovery.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_Recovery.Image = global::Painter2.Properties.Resources.復原_24;
+            this.button_Recovery.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_Recovery.Location = new System.Drawing.Point(7, 541);
+            this.button_Recovery.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Recovery.Name = "button_Recovery";
+            this.button_Recovery.Size = new System.Drawing.Size(75, 55);
+            this.button_Recovery.TabIndex = 241;
+            this.button_Recovery.Text = "復原";
+            this.button_Recovery.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_Recovery.UseVisualStyleBackColor = false;
+            this.button_Recovery.Click += new System.EventHandler(this.button_Recovery_Click);
+            // 
+            // button_Redo
+            // 
+            this.button_Redo.BackColor = System.Drawing.SystemColors.Control;
+            this.button_Redo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_Redo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button_Redo.Image = global::Painter2.Properties.Resources.重做_24;
+            this.button_Redo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_Redo.Location = new System.Drawing.Point(97, 541);
+            this.button_Redo.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Redo.Name = "button_Redo";
+            this.button_Redo.Size = new System.Drawing.Size(75, 55);
+            this.button_Redo.TabIndex = 242;
+            this.button_Redo.Text = "重做";
+            this.button_Redo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_Redo.UseVisualStyleBackColor = false;
+            this.button_Redo.Click += new System.EventHandler(this.button_Redo_Click);
+            // 
+            // panel_BatchImages
+            // 
+            this.panel_BatchImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_BatchImages.Controls.Add(this.listViewImages);
+            this.panel_BatchImages.Controls.Add(this.button_NextImage);
+            this.panel_BatchImages.Controls.Add(this.button_PreviousImage);
+            this.panel_BatchImages.Location = new System.Drawing.Point(1071, 25);
+            this.panel_BatchImages.Name = "panel_BatchImages";
+            this.panel_BatchImages.Size = new System.Drawing.Size(188, 640);
+            this.panel_BatchImages.TabIndex = 243;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.檔案ToolStripMenuItem,
+            this.工具ToolStripMenuItem,
+            this.說明ToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1264, 24);
+            this.menuStrip.TabIndex = 244;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // 檔案ToolStripMenuItem
+            // 
+            this.檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.結束ToolStripMenuItem});
+            this.檔案ToolStripMenuItem.Name = "檔案ToolStripMenuItem";
+            this.檔案ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.檔案ToolStripMenuItem.Text = "檔案";
+            // 
+            // 結束ToolStripMenuItem
+            // 
+            this.結束ToolStripMenuItem.Image = global::Painter2.Properties.Resources.close_32;
+            this.結束ToolStripMenuItem.Name = "結束ToolStripMenuItem";
+            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.結束ToolStripMenuItem.Text = "結束(✖)";
+            this.結束ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
+            // 
+            // 工具ToolStripMenuItem
+            // 
+            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.儲存設定ToolStripMenuItem,
+            this.語言設定ToolStripMenuItem,
