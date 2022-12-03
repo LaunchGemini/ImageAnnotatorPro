@@ -304,3 +304,199 @@ namespace Painter2
                 rbt.Text = "   ";
                 rbt.UseVisualStyleBackColor = false;
                 rbt.Click += (sender1, ex) => this.Dynamic_radioButton_Click(sender1, ex);
+
+                this.panel_ColorList.Controls.Add(rbt);
+            }
+        }
+
+        /// <summary>
+        /// 【顏色快捷列表】 Click事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Dynamic_radioButton_Click(object sender, EventArgs e)
+        {
+            if (this.rbt_SetColor.Checked) // 【標註顏色】
+                this.button_SetColor.BackColor = (sender as RadioButton).BackColor;
+            else // 【轉換顏色】
+                this.button_Color_changed.BackColor = (sender as RadioButton).BackColor;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 判斷是否已儲存
+            if (LabelImage.b_saved == false)
+            {
+                if (LabelImage.UnSaved_ProceedAnyway() == false)
+                    e.Cancel = true;
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.saveSetting.B_External_Open)
+            {
+                this.saveSetting.B_External_Open = false;
+                this.saveSetting.Save();
+            }
+        }
+
+        private void pictureBox_ImageShowForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.radioButton_DrawImg.CheckedChanged -= new System.EventHandler(this.radioButton_CheckedChanged);
+                radioButton_DrawImg.Checked = true;
+                this.radioButton_DrawImg.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+                Switch_button_dispImg();
+
+                isMouseDown = true; // 滑鼠被按下後設定旗標值。
+
+                Point p_Image = CoordinateTrans_Cursor2Image(e.Location, LoadImage_bmp); // 滑鼠游標座標轉換為影像座標
+                //points.Add(p_Image); // 將點加入到 points 陣列當中。
+                //ListPen.Add(new Pen(button_SetColor.BackColor, trackBar_width.Value));
+                LabelImage.points.Add(p_Image);
+                cls_LabelImage.cls_DrawTypeInfo drawTypeInfo = new cls_LabelImage.cls_DrawTypeInfo();
+                drawTypeInfo.cls_DrawTypeInfo_Constructor(drawType, button_SetColor.BackColor, trackBar_width.Value);
+                LabelImage.drawTypeInfo.Add(drawTypeInfo);
+
+                /*
+                float w = ListPen[points.Count - 1].Width;
+                // 影像座標上的寬 轉為 繪圖區的寬
+                int index = int.Parse(trackBar_zoom.Value.ToString());
+                w = (float)(w * ZoomRatios[index] / 100);
+
+                //g.DrawRectangle(new Pen(button_SetColor.BackColor, w), e.X - w / 2, e.Y - w / 2, w, w);
+                g.FillRectangle(new SolidBrush(button_SetColor.BackColor), e.X - w / 2, e.Y - w / 2, w, w);
+                */
+                pictureBox_ImageShowForm.Invalidate();
+            }
+        }
+
+        private void pictureBox_ImageShowForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point p_Image = CoordinateTrans_Cursor2Image(e.Location, LoadImage_bmp); // 滑鼠游標座標轉換為影像座標
+
+            if (isMouseDown) // 如果滑鼠被按下
+            {
+                //points.Add(p_Image); // 將點加入到 points 陣列當中。
+                //ListPen.Add(new Pen(button_SetColor.BackColor, trackBar_width.Value));
+                if (drawType == DrawType.penPoint || drawType == DrawType.eraser)
+                {
+                    this.LabelImage.points.Add(p_Image);
+                    cls_LabelImage.cls_DrawTypeInfo drawTypeInfo = new cls_LabelImage.cls_DrawTypeInfo();
+                    drawTypeInfo.cls_DrawTypeInfo_Constructor(drawType, button_SetColor.BackColor, trackBar_width.Value);
+                    this.LabelImage.drawTypeInfo.Add(drawTypeInfo);
+                }
+                else
+                {
+                    int index = this.LabelImage.points.Count - 1;
+                    this.LabelImage.drawTypeInfo[index].SetParam(this.LabelImage.points[index], p_Image);
+                }
+
+                /*
+                float w = ListPen[points.Count - 1].Width;
+                // 影像座標上的寬 轉為 繪圖區的寬
+                int index = int.Parse(trackBar_zoom.Value.ToString());
+                w = (float)(w * ZoomRatios[index] / 100);
+
+                //g.DrawRectangle(new Pen(button_SetColor.BackColor, w), e.X - w / 2, e.Y - w / 2, w, w);
+                g.FillRectangle(new SolidBrush(button_SetColor.BackColor), e.X - w / 2, e.Y - w / 2, w, w);
+                */
+                pictureBox_ImageShowForm.Invalidate();
+                //pictureBox_ImageShowForm.Refresh();
+            }
+
+            #region 顯示資訊
+
+            // 顯示滑鼠游標座標資訊
+            //label_Coordinate.Text = "(" + String.Format("{0:0}", e.X) + ", " + String.Format("{0:0}", e.Y) + ")";
+            // 顯示影像座標
+            label_Coordinate.Text = "(" + String.Format("{0:0}", p_Image.X) + ", " + String.Format("{0:0}", p_Image.Y) + ")";
+            label_Coordinate_Cursor.Text = "(" + String.Format("{0:0}", Cursor.Position.X) + ", " + String.Format("{0:0}", Cursor.Position.Y) + ")";
+
+            // 顯示【[R, G, B]:】及【灰階值:】
+            if (LoadImage_bmp != null && p_Image.X >= 0 && p_Image.X < LoadImage_bmp.Width && p_Image.Y >= 0 && p_Image.Y < LoadImage_bmp.Height)
+            {
+                Color c = LoadImage_bmp.GetPixel(p_Image.X, p_Image.Y);
+                System.Drawing.Imaging.PixelFormat Format = LoadImage_bmp.PixelFormat;
+                if (Format == System.Drawing.Imaging.PixelFormat.Format8bppIndexed) // 灰階影像
+                {
+                    txt_GrayValue.Text = c.R.ToString();
+                    txt_RGBValue.Text = "";
+                }
+                else
+                {
+                    txt_RGBValue.Text = "[" + c.R + ", " + c.G + ", " + c.B + "]";
+                    txt_GrayValue.Text = "";
+                }
+            }
+            else
+            {
+                txt_RGBValue.Text = "";
+                txt_GrayValue.Text = "";
+            }
+
+            #endregion
+        }
+
+        private void pictureBox_ImageShowForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown)
+            {
+                isMouseDown = false; // 滑鼠已經沒有被按下了。
+                //points.Add(new Point(-1, -1)); // 滑鼠放開時，插入一個斷點 (-1,-1)，以代表前後兩點之間有斷開。
+                //ListPen.Add(new Pen(button_SetColor.BackColor, trackBar_width.Value));
+
+                this.LabelImage.Add_1_BreakPoint();
+                this.Update_cbx_LabelledColor();
+
+                pictureBox_ImageShowForm.Invalidate();
+            }
+        }
+
+        private void pictureBox_ImageShowForm_DoubleClick(object sender, EventArgs e)
+        {
+            trackBar_zoom.Value = 3;
+        }
+
+        private void pictureBox_ImageShowForm_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                pictureBox_ImageShowForm.Cursor = Cursors.SizeAll; // 改變游標類型
+                b_MouseEvent = true;
+                if (e.Delta < 0)
+                {
+                    //button_zoomIn_Click(null, null); // 放大
+                    button_zoomOut_Click(null, null); // 缩小
+                }
+                else if (e.Delta > 0)
+                {
+                    //button_zoomOut_Click(null, null); // 缩小
+                    button_zoomIn_Click(null, null); // 放大
+                }
+            }
+        }
+
+        private void panel_DispImage_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                panel_DispImage.Cursor = Cursors.SizeAll; // 改變游標類型
+                b_MouseEvent = true;
+                if (e.Delta < 0)
+                {
+                    //button_zoomIn_Click(null, null); // 放大
+                    button_zoomOut_Click(null, null); // 缩小
+                }
+                else if (e.Delta > 0)
+                {
+                    //button_zoomOut_Click(null, null); // 缩小
+                    button_zoomIn_Click(null, null); // 放大
+                }
+            }
+        }
+
+        private void panel_DispImage_MouseHover(object sender, EventArgs e)
+        {
