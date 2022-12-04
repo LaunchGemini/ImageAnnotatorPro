@@ -500,3 +500,226 @@ namespace Painter2
 
         private void panel_DispImage_MouseHover(object sender, EventArgs e)
         {
+            if (this.b_MouseEvent)
+            {
+                this.b_MouseEvent = false;
+                panel_DispImage.Cursor = Cursors.Default;
+            }
+        }
+
+        private bool b_MouseEvent { get; set; } = false;
+        /// <summary>
+        /// 發生於滑鼠指標停留在控制項上一段時間時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_ImageShowForm_MouseHover(object sender, EventArgs e)
+        {
+            if (this.b_MouseEvent)
+            {
+                this.b_MouseEvent = false;
+                UpdateCursor(pictureBox_ImageShowForm);
+            }
+        }
+
+        /// <summary>
+        /// 滑鼠游標座標轉換為影像座標
+        /// Note: PictureBox 的 SizeMode 必須為 StretchImage
+        /// </summary>
+        /// <param name="p_Cursor"></param>
+        /// <param name="bmp"></param>
+        /// <returns></returns>
+        private Point CoordinateTrans_Cursor2Image(Point p_Cursor, Bitmap bmp)
+        {
+            Point p_Image = new Point(-1, -1);
+
+            if (bmp != null)
+            {
+                // 法1
+                p_Image.X = (int)(((double)p_Cursor.X / pictureBox_ImageShowForm.Width) * bmp.Width + 0.5);
+                p_Image.Y = (int)(((double)p_Cursor.Y / pictureBox_ImageShowForm.Height) * bmp.Height + 0.5);
+
+                // 法2
+                //int index = int.Parse(trackBar_zoom.Value.ToString());
+                //p_Image.X = (int)(p_Cursor.X / (ZoomRatios[index] * 0.01) + 0.5);
+                //p_Image.Y = (int)(p_Cursor.Y / (ZoomRatios[index] * 0.01) + 0.5);
+            }
+
+            return p_Image;
+        }
+
+        private Bitmap LoadImage_bmp = null;
+        /// <summary>
+        /// 【載入影像】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLoadImg_Click(object sender, EventArgs e)
+        {
+            // 判斷是否已儲存
+            if (LabelImage.b_saved == false)
+            {
+                if (LabelImage.UnSaved_ProceedAnyway() == false)
+                    return;
+            }
+
+            OpenFileDialog OpenImgDilg = new OpenFileDialog();
+            //OpenImgDilg.Filter = "TIFF Image|*.tif|JPeg Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp";
+            if (OpenImgDilg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return;
+            string path = OpenImgDilg.FileName;
+            this.path_Images.Clear();
+            this.path_Images.Add(path);
+            this.index_Image = 0;
+
+            this.List_Batch_ChangeColor = new List<cls_Batch_ChangeColor>();
+            for (int i = 0; i < this.path_Images.Count; i++)
+                this.List_Batch_ChangeColor.Add(new cls_Batch_ChangeColor());
+
+            this.Load_1_Img(path);
+
+            this.Update_listViewImages();
+        }
+
+        /// <summary>
+        /// 【批次載入】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_LoadBatchImages_Click(object sender, EventArgs e)
+        {
+            if (sender != null)
+            {
+                // 判斷是否已儲存
+                if (LabelImage.b_saved == false)
+                {
+                    if (LabelImage.UnSaved_ProceedAnyway() == false)
+                        return;
+                }
+
+                #if Use_FolderBrowserDialog_NewType
+                    FolderBrowserDialog_New Dilg = new FolderBrowserDialog_New();
+                    Dilg.DirectoryPath = this.folder_LoadBatch; // 初始路徑
+                    if (Dilg.ShowDialog(this) != DialogResult.OK)
+                        return;
+                    this.folder_LoadBatch = Dilg.DirectoryPath;
+                #else
+                    FolderBrowserDialog Dilg = new FolderBrowserDialog();
+                    Dilg.SelectedPath = this.folder_LoadBatch; // 初始路徑
+                    if (Dilg.ShowDialog() != DialogResult.OK)
+                        return;
+                    this.folder_LoadBatch = Dilg.SelectedPath;
+                #endif
+            }
+            else if (this.saveSetting.B_External_Open)
+            {
+                if (Directory.Exists(this.saveSetting.Extra_dirX))
+                    this.folder_LoadBatch = this.saveSetting.Extra_dirX;
+                else
+                {
+                    SystemSounds.Exclamation.Play();
+                    MessageBox.Show("【批次載入】路徑不存在!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            if (string.IsNullOrEmpty(this.folder_LoadBatch))
+            {
+                SystemSounds.Exclamation.Play();
+                MessageBox.Show("路徑無效!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.folder_LoadBatch = "";
+                return;
+            }
+
+            this.path_Images.Clear();
+            //path_Images = Directory.GetFiles(folder_LoadBatch, "*.*", SearchOption.TopDirectoryOnly).Where(f => f.ToLower().EndsWith("bmp") || f.ToLower().EndsWith("jpg") || f.ToLower().EndsWith("png") || f.ToLower().EndsWith("tif")).ToList();
+
+            if (this.saveSetting.B_Load_AllImageFormat) // 載入所有類型影像檔案格式
+                this.path_Images = Directory.GetFiles(this.folder_LoadBatch, "*.*", SearchOption.TopDirectoryOnly).Where(f => this.Path_IsImageFormat(f)).ToList();
+            else
+                this.path_Images = Directory.GetFiles(this.folder_LoadBatch, "*.*", SearchOption.TopDirectoryOnly).Where(f => f.ToLower().EndsWith(this.saveSetting.ImageFormat_Load.ToString())).ToList();
+
+            //path_Images = Directory.GetFiles(folder_LoadBatch, "*.*", SearchOption.AllDirectories).Where(f => f.ToLower().EndsWith(this.saveSetting.ImageFormat_Load.ToString())).ToList(); // 所有子資料夾下檔案
+
+            this.List_Batch_ChangeColor = new List<cls_Batch_ChangeColor>();
+            for (int i = 0; i < this.path_Images.Count; i++)
+                this.List_Batch_ChangeColor.Add(new cls_Batch_ChangeColor());
+
+            this.index_Image = 0;
+            if (this.path_Images.Count > 0)
+            {
+                //this.Load_1_Img(this.path_Images[this.index_Image]);
+                if (this.InvokeRequired)
+                    this.BeginInvoke(new Action(() => this.Load_1_Img(this.path_Images[this.index_Image])));
+                else
+                    this.Load_1_Img(this.path_Images[this.index_Image]);
+            }
+
+            //this.Update_listViewImages();
+            if (this.InvokeRequired)
+                this.BeginInvoke(new Action(() => this.Update_listViewImages()));
+            else
+                this.Update_listViewImages();
+        }
+
+        /// <summary>
+        /// 【批次載入2】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_LoadBatchImages2_Click(object sender, EventArgs e)
+        {
+            #if Use_FolderBrowserDialog_NewType
+                FolderBrowserDialog_New Dilg = new FolderBrowserDialog_New();
+                Dilg.DirectoryPath = this.saveSetting.Folder_LoadBatch2; // 初始路徑
+                if (Dilg.ShowDialog(this) != DialogResult.OK)
+                    return;
+                this.saveSetting.Folder_LoadBatch2 = Dilg.DirectoryPath;
+            #else
+                FolderBrowserDialog Dilg = new FolderBrowserDialog();
+                Dilg.SelectedPath = this.saveSetting.Folder_LoadBatch2; // 初始路徑
+                if (Dilg.ShowDialog() != DialogResult.OK)
+                    return;
+                this.saveSetting.Folder_LoadBatch2 = Dilg.SelectedPath;
+            #endif
+
+            this.Load_Image2();
+        }
+
+        /// <summary>
+        /// 判斷檔案路徑是否為影像檔
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public bool Path_IsImageFormat(string path)
+        {
+            bool b_status_ = false;
+            foreach (string f in Enum.GetNames(typeof(enu_ImageFormat)))
+            {
+                if (path.ToLower().EndsWith(f))
+                {
+                    b_status_ = true;
+                    break;
+                }
+            }
+            return b_status_;
+        }
+
+        /// <summary>
+        /// 取出檔案路徑之名稱 (含 或 不含 副檔名)
+        /// </summary>
+        /// <param name="path">檔案路徑</param>
+        /// <param name="b_extension">是否包含副檔名</param>
+        /// <returns></returns>
+        public string GetImageName_FromPath(string path, bool b_extension = false)
+        {
+            int Method = 2;
+            if (Method == 1)
+            {
+                int i1 = path.LastIndexOf("\\");
+                if (b_extension)
+                    return path.Substring(i1 + 1);
+                else
+                {
+                    int i2 = path.LastIndexOf(".");
+                    return path.Substring(i1 + 1, (i2 - 1) - i1);
