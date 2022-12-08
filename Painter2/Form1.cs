@@ -723,3 +723,229 @@ namespace Painter2
                 {
                     int i2 = path.LastIndexOf(".");
                     return path.Substring(i1 + 1, (i2 - 1) - i1);
+                }
+            }
+            else
+            {
+                if (b_extension)
+                    return Path.GetFileName(path);
+                else
+                    return Path.GetFileNameWithoutExtension(path);
+            }
+        }
+
+        /// <summary>
+        /// 取出檔案路徑之副檔名 (轉成 enu_ImageFormat類型)
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public enu_ImageFormat Get_enu_ImageFormat_FromPath(string path)
+        {
+            enu_ImageFormat imageFormat = enu_ImageFormat.bmp;
+            string extension = Path.GetExtension(path).Substring(1);
+            try
+            {
+                imageFormat = (enu_ImageFormat)Enum.Parse(typeof(enu_ImageFormat), extension);
+            }
+            catch
+            { }
+            return imageFormat;
+        }
+
+        /// <summary>
+        /// 載入單張影像，並且顯示影像及其資訊
+        /// </summary>
+        /// <param name="path"></param>
+        private void Load_1_Img(string path)
+        {
+            string imageName = this.GetImageName_FromPath(path);
+            this.B_LabelXML_Exist = clsStaticTool.LoadXML(saveSetting.Folder_Save + "\\label\\" + imageName + ".xml", out LabelImage);
+            this.List_Batch_ChangeColor[this.index_Image].B_LabelXML_Exist = this.B_LabelXML_Exist;
+            this.List_Batch_ChangeColor[this.index_Image].B_FinishJudge_LabelXML_Exist = true;
+            if (this.B_LabelXML_Exist)
+            {
+                this.radioButton_DrawImg.CheckedChanged -= new System.EventHandler(this.radioButton_CheckedChanged);
+                radioButton_DrawImg.Checked = true;
+                this.radioButton_DrawImg.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+                this.Switch_button_dispImg();
+            }
+            else
+            {
+                this.radioButton_OrigImg.CheckedChanged -= new System.EventHandler(this.radioButton_CheckedChanged);
+                radioButton_OrigImg.Checked = true;
+                this.radioButton_OrigImg.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+                this.Switch_button_dispImg();
+                LabelImage = new cls_LabelImage();
+                LabelImage.cls_LabelImage_Constructor(imageName, this.Get_enu_ImageFormat_FromPath(path));
+            }
+            this.LoadImage_bmp = new Bitmap(path);
+
+            // 調整pictureBox大小以符合載入影像尺寸 (Note: SizeMode=StretchImage下要自行設定)
+            //pictureBox_ImageShowForm.Width = LoadImage_bmp.Width;
+            //pictureBox_ImageShowForm.Height = LoadImage_bmp.Height;
+            this.Initial_pictureBox1Width = this.LoadImage_bmp.Width;
+            this.Initial_pictureBox1Height = this.LoadImage_bmp.Height;
+            this.pictureBox_ImageShowForm.Image = this.LoadImage_bmp;
+
+            // 縮放倍率回到 100%
+            //if (this.trackBar_zoom.Value != 3)
+            //    this.trackBar_zoom.Value = 3;
+            //else
+            //    this.trackBar_zoom_ValueChanged(null, null);
+            // 固定縮放倍率
+            this.trackBar_zoom_ValueChanged(null, null);
+
+            //g = Graphics.FromImage(LoadImage_bmp);
+            //g = Graphics.FromImage(pictureBox_ImageShowForm.Image);
+
+            this.Update_ImgInfo(path);
+            this.Update_cbx_LabelledColor();
+
+            // Double_Dir
+            if (this.saveSetting.Index_Module == 1)
+                this.Load_Image2();
+        }
+
+        /// <summary>
+        /// 載入單張影像 (【批次載入2】)
+        /// </summary>
+        private void Load_Image2()
+        {
+            if (this.path_Images.Count == 0)
+                return;
+
+            try
+            {
+                string path = this.path_Images[this.index_Image];
+                string imageName_ext = this.GetImageName_FromPath(path, true);
+                string path_image2 = this.saveSetting.Folder_LoadBatch2 + "//" + imageName_ext;
+                if (File.Exists(path_image2))
+                {
+                    Bitmap image2 = new Bitmap(path_image2);
+                    this.pictureBox_Dir2.Image = image2;
+                    //image2.Dispose(); // 會有例外狀況!
+                }
+                else
+                {
+                    this.pictureBox_Dir2.Image = null;
+                    MessageBox.Show("【批次載入2】路徑資料夾不存在此影像", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.pictureBox_Dir2.Image = null;
+                Trace.WriteLine(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 更新 影像尺寸 & 影像大小
+        /// </summary>
+        /// <param name="path"></param>
+        private void Update_ImgInfo(string path)
+        {
+            // 影像尺寸
+            icon_ImageSize.Visible = true;
+            label_Size.Visible = true;
+            string str;
+            if (Language == "Chinese")
+                str = "像素";
+            else
+                str = "Pixel";
+            label_Size.Text = LoadImage_bmp.Width.ToString() + " × " + LoadImage_bmp.Height.ToString() + str;
+            // 影像大小
+            icon_Memory.Visible = true;
+            FileInfo F = new FileInfo(path);
+            label_Memory.Visible = true;
+            double kb = F.Length / Math.Pow(1024, 1);
+            if (Language == "Chinese")
+                str = "大小";
+            else
+                str = "Memory";
+            if (kb < 1024)
+                label_Memory.Text = str + ": " + kb.ToString("#0.0") + "KB";
+            else
+                label_Memory.Text = str + ": " + (F.Length / Math.Pow(1024, 2)).ToString("#0.0") + "MB";
+        }
+
+        private void Select_index_Image()
+        {
+            this.listViewImages.Items[index_Image].Focused = true;
+            this.listViewImages.Items[index_Image].Selected = true;
+            //this.listViewImages.Items[index_Image].BackColor = Color.Blue;
+            this.listViewImages.Items[index_Image].EnsureVisible();
+        }
+
+        /// <summary>
+        /// 【上一張】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_PreviousImage_Click(object sender, EventArgs e)
+        {
+            if (index_Image == 0)
+                return;
+
+            // 判斷是否已儲存
+            if (LabelImage.b_saved == false)
+            {
+                if (LabelImage.UnSaved_ProceedAnyway() == false)
+                    return;
+            }
+
+            this.listViewImages.SelectedIndexChanged -= new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+
+            this.listViewImages.Items[index_Image].Selected = false;
+            index_Image--;
+            this.Load_1_Img(path_Images[index_Image]);
+
+            Select_index_Image();
+
+            this.listViewImages.SelectedIndexChanged += new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+        }
+
+        /// <summary>
+        /// 【下一張】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_NextImage_Click(object sender, EventArgs e)
+        {
+            if (this.index_Image >= (path_Images.Count - 1))
+                return;
+
+            // 判斷是否已儲存
+            if (LabelImage.b_saved == false)
+            {
+                if (LabelImage.UnSaved_ProceedAnyway() == false)
+                    return;
+            }
+
+            this.listViewImages.SelectedIndexChanged -= new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+
+            // 消除目前選取狀態
+            this.listViewImages.Items[this.index_Image].Selected = false;
+            this.index_Image++;
+            this.Load_1_Img(path_Images[this.index_Image]);
+
+            this.Select_index_Image();
+
+            this.listViewImages.SelectedIndexChanged += new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+        }
+
+        /// <summary>
+        /// 更新 listViewImages
+        /// </summary>
+        public void Update_listViewImages()
+        {
+            imageList.Images.Clear();
+
+            this.listViewImages.BeginUpdate(); // 資料更新,UI暫時掛起,直到EndUpdate繪製控制元件,可以有效避免閃爍並大大提高載入速度
+            this.listViewImages.Items.Clear();
+
+            for (int i = 0; i < path_Images.Count; i++)
+            {
+                string path = path_Images[i];
+                // 顯示影像檔名
+                ListViewItem lvi = new ListViewItem(this.GetImageName_FromPath(path, true));
+                // 顯示影像
