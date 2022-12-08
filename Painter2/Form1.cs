@@ -949,3 +949,208 @@ namespace Painter2
                 // 顯示影像檔名
                 ListViewItem lvi = new ListViewItem(this.GetImageName_FromPath(path, true));
                 // 顯示影像
+                Bitmap img = new Bitmap(path);
+                //img.MakeTransparent();
+                imageList.Images.Add(img);
+                lvi.ImageIndex = i;
+                //lvi.Focused = true;
+
+                this.listViewImages.Items.Add(lvi);
+            }
+
+            //this.listViewImages.CheckBoxes = true;
+            this.listViewImages.EndUpdate(); // 結束資料處理,UI介面一次性繪製
+
+            if (this.listViewImages.Items.Count > 0)
+            {
+                //this.listViewImages.Items[0].Checked = true;
+                this.listViewImages.Items[0].Focused = true;
+                this.listViewImages.SelectedIndexChanged -= new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+                this.listViewImages.Items[0].Selected = true;
+                this.listViewImages.Items[0].EnsureVisible();
+                this.listViewImages.SelectedIndexChanged += new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+            }
+        }
+
+        private void listViewImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.listViewImages.SelectedIndices.Count <= 0)
+                return;
+
+            // 判斷是否已儲存
+            if (LabelImage.b_saved == false)
+            {
+                if (LabelImage.UnSaved_ProceedAnyway() == false)
+                {
+                    this.listViewImages.SelectedIndexChanged -= new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+
+                    // 消除目前選取狀態
+                    this.listViewImages.Items[this.listViewImages.SelectedIndices[0]].Focused = false;
+                    this.listViewImages.Items[this.listViewImages.SelectedIndices[0]].Selected = false;
+
+                    // 復原影像選取狀態
+                    Select_index_Image();
+
+                    this.listViewImages.SelectedIndexChanged += new System.EventHandler(this.listViewImages_SelectedIndexChanged);
+
+                    return;
+                }
+            }
+
+            //this.listViewImages.Items[index_Image].Selected = false;
+            index_Image = this.listViewImages.SelectedIndices[0];
+            Load_1_Img(path_Images[index_Image]);
+
+            //Select_index_Image();
+        }
+
+        /// <summary>
+        /// 顯示影像切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rbtn = sender as RadioButton;
+            if (rbtn.Checked == false) return;
+
+            Switch_button_dispImg();
+
+            pictureBox_ImageShowForm.Invalidate();
+        }
+
+        /// <summary>
+        /// 切換 button_dispImg 顯示之文字及影像
+        /// </summary>
+        private void Switch_button_dispImg()
+        {
+            if (radioButton_OrigImg.Checked) // 【原圖】
+            {
+                //if (Language == "Chinese")
+                //    button_dispImg.Text = "原圖";
+                //else
+                //    button_dispImg.Text = "OrigImg";
+                button_dispImg.Text = radioButton_OrigImg.Text;
+
+                this.button_dispImg.Image = global::Painter2.Properties.Resources.原圖_24;
+            }
+            else //【標註影像】
+            {
+                //button_dispImg.Text = "標註影像";
+                button_dispImg.Text = radioButton_DrawImg.Text;
+
+                this.button_dispImg.Image = global::Painter2.Properties.Resources.標註影像_24;
+            }
+        }
+
+        /// <summary>
+        /// 顯示【原圖】/【標註影像】切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_dispImg_Click(object sender, EventArgs e)
+        {
+            if (radioButton_OrigImg.Checked)
+                radioButton_DrawImg.Checked = true;
+            else
+                radioButton_OrigImg.Checked = true;
+        }
+
+        /// <summary>
+        /// 【調整顯示透明度】啟用切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkBox_Alpha_CheckedChanged(object sender, EventArgs e)
+        {
+            this.nud_Alpha.Enabled = this.checkBox_Alpha.Checked;
+            if (this.checkBox_Alpha.Checked == false)
+            {
+                this.nud_Alpha.ValueChanged -= new System.EventHandler(this.nud_Alpha_ValueChanged);
+                this.nud_Alpha.Value = 255;
+                this.nud_Alpha.ValueChanged += new System.EventHandler(this.nud_Alpha_ValueChanged);
+            }
+            pictureBox_ImageShowForm.Invalidate();
+        }
+
+        /// <summary>
+        /// 【調整顯示透明度】數值更新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nud_Alpha_ValueChanged(object sender, EventArgs e)
+        {
+            pictureBox_ImageShowForm.Invalidate();
+        }
+
+        /// <summary>
+        /// 【游標類型】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbx_Cursor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCursor(pictureBox_ImageShowForm);
+            //this.Cursor = Cursors.Default;
+        }
+
+        /// <summary>
+        /// 標註工具類型切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void radioButton_Tool_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rbtn = sender as RadioButton;
+            if (rbtn.Checked == false) return;
+
+            string tag = rbtn.Tag.ToString();
+            this.drawType = (DrawType)(Enum.Parse(typeof(DrawType), tag));
+        }
+
+        private void pictureBox_ImageShowForm_Paint(object sender, PaintEventArgs e)
+        {
+            /*
+            if (b_MouseEvent != true)
+                g.Clear(System.Drawing.SystemColors.Control);
+            */
+            //this.pictureBox_ImageShowForm.Paint -= new System.Windows.Forms.PaintEventHandler(this.pictureBox_ImageShowForm_Paint);
+            //pictureBox_ImageShowForm.Image = LoadImage_bmp;
+            //this.pictureBox_ImageShowForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_ImageShowForm_Paint);
+
+            g = e.Graphics;
+            if (radioButton_DrawImg.Checked) // 標註影像
+            {
+                //Redraw_Label(g, (float)(ZoomRatios[int.Parse(trackBar_zoom.Value.ToString())] / 100));
+                this.LabelImage.Redraw_Label(g, this.LoadImage_bmp, (float)(ZoomRatios[int.Parse(trackBar_zoom.Value.ToString())] / 100), false, this.isMouseDown, this.checkBox_Alpha.Checked, int.Parse(this.nud_Alpha.Value.ToString()));
+            }
+            g = pictureBox_ImageShowForm.CreateGraphics(); // 取得繪圖區物件
+        }
+
+        private void Redraw_Label(Graphics g_, float zoomRatio = 1)
+        {
+            //g_.Clear(System.Drawing.SystemColors.Control); // 清除標註
+
+            /*
+            for (int i = 0; i < points.Count - 1; i++)
+            {
+                if (points[i].X >= 0 && points[i + 1].X >= 0)
+                    g_.DrawLine(ListPen[i + 1], points[i], points[i + 1]);
+            }
+            */
+            /*
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (points[i].X >= 0)
+                {
+                    //g_.DrawRectangle(ListPen[i], new Rectangle(points[i], new Size(1, 1)));
+
+                    float w = ListPen[i].Width;
+                    // 影像座標上的寬 轉為 繪圖區的寬
+                    w *= zoomRatio;
+                    Pen p = new Pen(ListPen[i].Color, w);
+                    //g_.DrawRectangle(p, points[i].X * zoomRatio - w / 2, points[i].Y * zoomRatio - w / 2, w, w);
+                    g_.FillRectangle(new SolidBrush(ListPen[i].Color), points[i].X * zoomRatio - w / 2, points[i].Y * zoomRatio - w / 2, w, w);
+                }
+            }
+            */
