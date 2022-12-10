@@ -1332,3 +1332,212 @@ namespace Painter2
         /// <param name="e"></param>
         private void button_Redo_Click(object sender, EventArgs e)
         {
+            this.Update_cbx_LabelledColor();
+        }
+
+        /// <summary>
+        /// 【儲存路徑】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SavePath_Click(object sender, EventArgs e)
+        {
+            #if Use_FolderBrowserDialog_NewType
+                FolderBrowserDialog_New Dilg = new FolderBrowserDialog_New();
+                Dilg.DirectoryPath = this.saveSetting.Folder_Save; // 初始路徑
+                if (Dilg.ShowDialog(this) != DialogResult.OK)
+                    return;
+                this.saveSetting.Folder_Save = Dilg.DirectoryPath;
+            #else
+                FolderBrowserDialog Dilg = new FolderBrowserDialog();
+                Dilg.SelectedPath = this.saveSetting.Folder_Save; // 初始路徑
+                if (Dilg.ShowDialog() != DialogResult.OK)
+                    return;
+                this.saveSetting.Folder_Save = Dilg.SelectedPath;
+            #endif
+
+            if (string.IsNullOrEmpty(saveSetting.Folder_Save))
+            {
+                SystemSounds.Exclamation.Play();
+                MessageBox.Show("路徑無效!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                saveSetting.Folder_Save = Application.StartupPath;
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 【儲存】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_Save_Click(object sender, EventArgs e)
+        {
+            //pictureBox_ImageShowForm.Image.Save("SavedImg.bmp");
+            /*
+            Bitmap bmp = new Bitmap(LoadImage_bmp.Width, LoadImage_bmp.Height);
+            Graphics g_save = Graphics.FromImage(bmp);
+            //g_save.DrawImage(LoadImage_bmp, new Point(0, 0));
+            g_save.DrawImage(LoadImage_bmp, 0, 0, LoadImage_bmp.Width, LoadImage_bmp.Height);
+            Redraw_Label(g_save);
+            bmp.Save("SavedImg.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+            */
+            /*
+            string path = Application.StartupPath;
+            path += "/SavedImg.bmp";
+            LabelImage.Save_1_DrawImage(LoadImage_bmp, path);
+            */
+
+            //this.LabelImage.Save(this.LoadImage_bmp, this.saveSetting);
+            Save(this.LabelImage, this.LoadImage_bmp, this.saveSetting); // (20201019) Jeff Revised!
+            this.List_Batch_ChangeColor[this.index_Image].B_Saved = true;
+        }
+
+        /// <summary>
+        /// 【儲存】
+        /// </summary>
+        /// <param name="labelImage"></param>
+        /// <param name="image"></param>
+        /// <param name="saveSetting"></param>
+        /// <returns></returns>
+        public static bool Save(cls_LabelImage labelImage, Bitmap image, cls_SaveSetting saveSetting) // (20201019) Jeff Revised!
+        {
+            bool b_status_ = false;
+            labelImage.b_saved = true;
+            try
+            {
+                if (saveSetting.B_save_label)
+                    labelImage.Save_1_Recipe(saveSetting.Folder_Save + "\\" + saveSetting.FileName_label + "\\");
+
+                enu_ImageFormat enuImageFormat = saveSetting.ImageFormat_Save;
+                if (saveSetting.B_Save_SameImageFormat)
+                    enuImageFormat = labelImage.ImageFormat_Orig;
+                System.Drawing.Imaging.ImageFormat imageFormat = labelImage.Convert_ImageFormat(enuImageFormat);
+                string ext = enuImageFormat.ToString();
+
+                if (saveSetting.B_save_OrigImage)
+                {
+                    if (saveSetting.B_External_Open)
+                    {
+                        //labelImage.Save_OrigImage(image, saveSetting.Extra_dirX + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+                    }
+                    labelImage.Save_OrigImage(image, saveSetting.Folder_Save + "\\" + saveSetting.FileName_OrigImage + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+                }
+                if (saveSetting.B_save_label_Image1)
+                {
+                    if (saveSetting.B_External_Open)
+                        labelImage.Save_1_DrawImage(image, saveSetting.Extra_dirY + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+                    labelImage.Save_1_DrawImage(image, saveSetting.Folder_Save + "\\" + saveSetting.FileName_label_Image1 + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+                }
+                if (saveSetting.B_save_label_Image2)
+                    labelImage.Save_1_DrawImage2(image, saveSetting.Folder_Save + "\\" + saveSetting.FileName_label_Image2 + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+                if (saveSetting.B_save_label_Image3)
+                    labelImage.Save_1_DrawImage3(image, saveSetting.Folder_Save + "\\" + saveSetting.FileName_label_Image3 + "\\" + labelImage.ImageName + "." + ext, imageFormat);
+
+                b_status_ = true;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.ToString());
+            }
+
+            labelImage.b_saved = b_status_;
+            return b_status_;
+        }
+
+        #region Cursor
+
+        /// <summary>
+        /// 滑鼠游標類型
+        /// </summary>
+        public enum enu_CursorImage
+        {
+            #region Windows Forms 內建游標類型
+
+            Cross,
+            Arrow,
+            Default,
+            SizeAll,
+            Hand,
+
+            #endregion
+
+            Circle,
+            Rectangle,
+            Cross2,
+            CrossCircle,
+            CrossRectangle,
+            DiamondCircle,
+        };
+
+        public static Bitmap CreateCursorImage(Size ImageSize, enu_CursorImage type, float DrawWidth = 5, Color color = default(Color))
+        {
+            int w = ImageSize.Width, h = ImageSize.Height;
+            Bitmap bmp = new Bitmap(w, h);
+            float x = (float)(ImageSize.Width / 2.0), y = (float)(ImageSize.Height / 2.0);
+            Graphics g = Graphics.FromImage(bmp); // 將Graphics g畫布 畫在bmp上
+
+            if (object.Equals(color, default(Color)))
+                color = Color.Black;
+            Brush bb = new SolidBrush(color);
+
+            // 輪廓
+            Pen p;
+            if (color != Color.Black)
+                p = new Pen(Color.Black, 1);
+            else
+                p = new Pen(Color.White, 1);
+
+            switch (type)
+            {
+                case enu_CursorImage.Circle:
+                    {
+                        g.FillEllipse(bb, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth);
+                        g.DrawEllipse(p, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth); // 輪廓
+                    }
+                    break;
+                case enu_CursorImage.Rectangle:
+                    {
+                        g.FillRectangle(bb, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth);
+                        g.DrawRectangle(p, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth); // 輪廓
+                    }
+                    break;
+                case enu_CursorImage.Cross2:
+                    {
+                        // 輪廓
+                        p.Width = 2;
+                        g.DrawLine(p, x, y - DrawWidth / 2, x, y + DrawWidth / 2 - 1);
+                        g.DrawLine(p, x - DrawWidth / 2, y, x + DrawWidth / 2 - 1, y);
+
+                        p = new Pen(color, 1);
+                        g.DrawLine(p, x, y - DrawWidth / 2, x, y + DrawWidth / 2 - 1);
+                        g.DrawLine(p, x - DrawWidth / 2, y, x + DrawWidth / 2 - 1, y);
+                    }
+                    break;
+                case enu_CursorImage.CrossCircle:
+                    {
+                        // Circle
+                        g.FillEllipse(bb, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth);
+                        g.DrawEllipse(p, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth); // 輪廓
+
+                        // Cross
+                        float len = (y - DrawWidth / 2) * 3 / 5;
+                        g.DrawLine(p, x, 0, x, len);
+                        g.DrawLine(p, x, h - 1, x, h - len);
+                        g.DrawLine(p, 0, y, len, y);
+                        g.DrawLine(p, w - 1, y, w - len, y);
+                    }
+                    break;
+                case enu_CursorImage.CrossRectangle:
+                    {
+                        // Rectangle
+                        g.FillRectangle(bb, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth);
+                        g.DrawRectangle(p, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth); // 輪廓
+
+                        // Cross
+                        float len = (y - DrawWidth / 2) * 3 / 5;
+                        g.DrawLine(p, x, 0, x, len);
+                        g.DrawLine(p, x, h - 1, x, h - len);
+                        g.DrawLine(p, 0, y, len, y);
+                        g.DrawLine(p, w - 1, y, w - len, y);
+                    }
+                    break;
