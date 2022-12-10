@@ -1154,3 +1154,181 @@ namespace Painter2
                 }
             }
             */
+        }
+
+        /// <summary>
+        /// 更新滑桿數值顯示標籤及其位置 (滑桿數值改變)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trackBar_width_Scroll(object sender, EventArgs e)
+        {
+            // 更新滑桿數值顯示
+            label_widthValue.Text = trackBar_width.Value.ToString();
+
+            // 更新顯示標籤位置
+            int Min = label_width_Min.Top, Max = label_width_Max.Top;
+            int value = trackBar_width.Value;
+            label_widthValue.Top = (int)(Min + (Max - Min) / ((double)(trackBar_width.Maximum - trackBar_width.Minimum)) * (value - trackBar_width.Minimum) + 0.5);
+
+            // 更新滑鼠游標
+            UpdateCursor(pictureBox_ImageShowForm);
+        }
+
+        /// <summary>
+        /// 【標註顏色】or【轉換顏色】 顏色設定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SetColor_Click(object sender, EventArgs e)
+        {
+            Button bt = sender as Button;
+            colorDialog_SetColor.Color = bt.BackColor;
+            if (colorDialog_SetColor.ShowDialog() != DialogResult.Cancel)
+            {
+                bt.BackColor = colorDialog_SetColor.Color;
+
+                /*
+                // 測試顏色轉換後是否相等
+                string halconColor = clsStaticTool.GetHalconColor(this.button_SetColor.BackColor);
+                Color c = clsStaticTool.GetSystemColor(halconColor);
+                int Argb;
+                if (c == this.button_SetColor.BackColor)
+                    ;
+                else if (c.ToArgb() == this.button_SetColor.BackColor.ToArgb())
+                    Argb = c.ToArgb();
+                */
+            }
+        }
+
+        /// <summary>
+        /// 【標註顏色】顏色改變時，更新滑鼠游標
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SetColor_BackColorChanged(object sender, EventArgs e)
+        {
+            // 更新滑鼠游標
+            this.UpdateCursor(this.pictureBox_ImageShowForm);
+        }
+
+        /// <summary>
+        /// 更新 【已標注顏色】下拉式選單
+        /// </summary>
+        private void Update_cbx_LabelledColor()
+        {
+            this.cbx_LabelledColor.Items.Clear();
+            this.cbx_LabelledColor.Text = "";
+            foreach (string s in this.LabelImage.Labelled_HalconColor)
+                this.cbx_LabelledColor.Items.Add(s);
+        }
+
+        /// <summary>
+        /// 選取【已標注顏色】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbx_LabelledColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cbx_LabelledColor.SelectedIndex < 0)
+                return;
+
+            this.button_SetColor.BackColor = clsStaticTool.GetSystemColor(this.LabelImage.Labelled_HalconColor[this.cbx_LabelledColor.SelectedIndex]);
+
+            // 更新滑鼠游標
+            this.UpdateCursor(pictureBox_ImageShowForm);
+        }
+
+        /// <summary>
+        /// 【標註顏色轉換】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_ChangeColor_Click(object sender, EventArgs e)
+        {
+            Color OrigColor = this.button_SetColor.BackColor;
+
+            // 標註顏色切換
+            /*
+            foreach (Pen p in ListPen)
+            {
+                if (checkBox_ChangeColor_All.Checked || p.Color == OrigColor)
+                    p.Color = button_SetColor.BackColor;
+            }
+            */
+            this.LabelImage.ChangeColor(drawType, OrigColor, this.button_Color_changed.BackColor, this.checkBox_ChangeColor_All.Checked);
+            try // (20210816) Jeff Revised!
+            {
+                this.List_Batch_ChangeColor[this.index_Image].B_Color_Changed = true;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.ToString());
+            }
+
+            pictureBox_ImageShowForm.Invalidate();
+            this.Update_cbx_LabelledColor();
+        }
+
+        /// <summary>
+        /// 【移除】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            /* 法1 */
+            /*
+            if (ListPen.Exists(x => x.Color == button_SetColor.BackColor))
+            {
+                while (true)
+                {
+                    int index = ListPen.FindIndex(x => x.Color == button_SetColor.BackColor);
+                    if (index == -1)
+                        break;
+                    ListPen.RemoveAt(index);
+                    points.RemoveAt(index);
+                }
+            }
+            */
+            LabelImage.Clear(drawType, button_SetColor.BackColor, checkBox_ChangeColor_All.Checked);
+
+            pictureBox_ImageShowForm.Invalidate();
+            this.Update_cbx_LabelledColor();
+        }
+
+        /// <summary>
+        /// 【清空】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_ClearAll_Click(object sender, EventArgs e)
+        {
+            //points.Clear();
+            //ListPen.Clear();
+            LabelImage.ClearAll();
+
+            pictureBox_ImageShowForm.Invalidate();
+            this.Update_cbx_LabelledColor();
+        }
+
+        /// <summary>
+        /// 【復原】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_Recovery_Click(object sender, EventArgs e)
+        {
+            LabelImage.Recovery();
+
+            pictureBox_ImageShowForm.Invalidate();
+            this.Update_cbx_LabelledColor();
+        }
+
+        /// <summary>
+        /// 【重做】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_Redo_Click(object sender, EventArgs e)
+        {
