@@ -1770,3 +1770,219 @@ namespace Painter2
                             this.m_ProgressBar.SetShowText("請等待【標註顏色批次轉換】......");
                             this.m_ProgressBar.SetShowCaption("執行中......");
                             this.m_ProgressBar.SetShowText_location(new Point(11, 1), new Size(387, 48));
+                            this.m_ProgressBar.ShowRunProgress();
+
+                            #region 執行【標註顏色批次轉換】
+
+                            this.button_LoadBatchImages_Click(null, null);
+                            if (this.path_Images.Count > 0)
+                            {
+                                while (true)
+                                {
+                                    int Method = 2;
+                                    if (Method == 1) // Method 1: 會有問題!
+                                    {
+                                        #region Method 1
+
+                                        // 對此影像做【標註顏色轉換】並且【儲存】
+                                        if (this.B_LabelXML_Exist)
+                                        {
+                                            // 【標註顏色轉換】
+                                            if (this.InvokeRequired)
+                                                this.BeginInvoke(new Action(() => this.button_ChangeColor_Click(null, null)));
+                                            else
+                                                this.button_ChangeColor_Click(null, null);
+                                            // 【儲存】
+                                            if (this.InvokeRequired)
+                                                this.BeginInvoke(new Action(() => this.button_Save_Click(null, null)));
+                                            else
+                                                this.button_Save_Click(null, null);
+
+                                            /*
+                                            if (this.InvokeRequired)
+                                            {
+                                                this.BeginInvoke(new Action(() => this.button_ChangeColor_Click(null, null)));
+                                                this.BeginInvoke(new Action(() => this.button_Save_Click(null, null)));
+                                            }
+                                            else
+                                            {
+                                                this.button_ChangeColor_Click(null, null);
+                                                this.button_Save_Click(null, null);
+                                            }
+                                            */
+                                        }
+                                        else
+                                        {
+                                            ;
+                                        }
+
+                                        Thread.Sleep(500); // For debug!
+
+                                        // UI才會更新
+                                        Application.DoEvents(); // 處理當前在消息隊列中的所有 Windows 消息，可以防止界面停止響應
+                                        Thread.Sleep(1); // Sleep一下，避免一直跑DoEvents()導致計算效率低
+
+                                        if (this.index_Image == (this.path_Images.Count - 1)) // 此影像為最後一張
+                                            break;
+
+                                        // 【下一張】
+                                        if (this.InvokeRequired)
+                                            this.BeginInvoke(new Action(() => this.button_NextImage_Click(null, null)));
+                                        else
+                                            this.button_NextImage_Click(null, null);
+
+                                        #endregion
+                                    }
+                                    else // Method 2
+                                    {
+                                        #region Method 2
+
+                                        if (this.List_Batch_ChangeColor[this.index_Image].B_LabelXML_Exist)
+                                        {
+                                            // 【標註顏色轉換】
+                                            if (this.List_Batch_ChangeColor[this.index_Image].B_Color_Changed == false)
+                                            {
+                                                if (this.InvokeRequired)
+                                                    this.BeginInvoke(new Action(() => this.button_ChangeColor_Click(null, null)));
+                                                else
+                                                    this.button_ChangeColor_Click(null, null);
+                                            }
+
+                                            // 【儲存】
+                                            if (this.List_Batch_ChangeColor[this.index_Image].B_Color_Changed && this.List_Batch_ChangeColor[this.index_Image].B_Saved == false)
+                                            {
+                                                if (this.InvokeRequired)
+                                                    this.BeginInvoke(new Action(() => this.button_Save_Click(null, null)));
+                                                else
+                                                    this.button_Save_Click(null, null);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ;
+                                        }
+
+                                        //Thread.Sleep(500); // For debug!
+                                        Thread.Sleep(100); // 太小會有問題!!!
+
+                                        // UI才會更新
+                                        //Application.DoEvents(); // 處理當前在消息隊列中的所有 Windows 消息，可以防止界面停止響應
+                                        Thread.Sleep(1); // Sleep一下，避免一直跑DoEvents()導致計算效率低
+
+                                        if (this.List_Batch_ChangeColor[this.index_Image].B_Finished()) // 此影像已完成【標註顏色轉換】 或 標註檔不存在無需做轉換
+                                        {
+                                            this.m_ProgressBar.SetStep(100 * (this.index_Image + 1) / (this.path_Images.Count));
+                                            if (this.index_Image == (this.path_Images.Count - 1)) // 此影像為最後一張
+                                            {
+                                                Thread.Sleep(100); // 顯示100% For debug!
+                                                break;
+                                            }
+                                            else // 執行【下一張】
+                                            {
+                                                if (this.InvokeRequired)
+                                                    this.BeginInvoke(new Action(() => this.button_NextImage_Click(null, null)));
+                                                else
+                                                    this.button_NextImage_Click(null, null);
+                                            }
+                                        }
+
+                                        #endregion
+                                    }
+                                }
+                            }
+
+                            #endregion
+
+                            this.m_ProgressBar.CloseProgress();
+                        }
+                        catch (ThreadInterruptedException ex)
+                        {
+                            //this.backgroundThread = null;
+                        }
+                        catch (ThreadAbortException ex)
+                        {
+                            Thread.ResetAbort();
+                        }
+                    }
+                ));
+
+                // Start the background process thread
+                backgroundThread.Start();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 【標註顏色批次轉換】停止
+        /// </summary>
+        public void SetFormClosed2_Batch_ChangeColor()
+        {
+            // 關閉程式時仍有問題!!!
+            this.backgroundThread.Abort();
+            //this.backgroundThread.Interrupt();
+            //this.backgroundThread.Join();
+        }
+
+        #region 語言切換
+
+        /// <summary>
+        /// 轉換語言 (任何語言轉中文)
+        /// </summary>
+        private void ResetLanguage()
+        {
+            clsLanguage.clsLanguage.UpdateRestoreLanguageLib();
+
+            clsLanguage.clsLanguage.SetLanguateToControls(this, true);
+
+            clsLanguage.clsLanguage.RefreshLib();
+        }
+
+        /// <summary>
+        /// 轉換語言 (任何語言轉其他語言)
+        /// </summary>
+        private void ChangeLanguage()
+        {
+            clsLanguage.clsLanguage.UpdateLanguageLib();
+
+            clsLanguage.clsLanguage.SetLanguateToControls(this, true);
+
+            clsLanguage.clsLanguage.RefreshLib();
+        }
+
+        private void 中文ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            中文ToolStripMenuItem.Checked = true;
+            英文ToolStripMenuItem.Checked = false;
+            Language = "Chinese";
+
+            /* 特殊字元先刪除 (因為無法存入INI檔) */
+            if (結束ToolStripMenuItem.Text == "結束(✖)")
+                結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 2);
+            else if (結束ToolStripMenuItem.Text == "Quit(✖)")
+                結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 4);
+
+            clsIniFile iniSystem = new clsIniFile(clsData.g_strSystemIniFilePath); // clsData.g_strSystemIniFilePath = Application.StartupPath + "\\INI\\System.ini"
+            ResetLanguage();
+            iniSystem.WriteValue("System", "Language", "Chinese"); // 儲存目前使用之語言種類
+
+            /* 特殊字元補回 (因為無法存入INI檔) */
+            結束ToolStripMenuItem.Text += "(✖)";
+
+            if (path_Images.Count > 0)
+                Update_ImgInfo(path_Images[index_Image]);
+        }
+
+        private void 英文ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            中文ToolStripMenuItem.Checked = false;
+            英文ToolStripMenuItem.Checked = true;
+            Language = "English";
+
+            /* 特殊字元先刪除 (因為無法存入INI檔) */
+            if (結束ToolStripMenuItem.Text == "結束(✖)")
+                結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 2);
+            else if (結束ToolStripMenuItem.Text == "Quit(✖)")
+                結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 4);
