@@ -1541,3 +1541,232 @@ namespace Painter2
                         g.DrawLine(p, w - 1, y, w - len, y);
                     }
                     break;
+                case enu_CursorImage.DiamondCircle:
+                    {
+                        // Circle
+                        g.FillEllipse(bb, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth);
+                        g.DrawEllipse(p, x - DrawWidth / 2, y - DrawWidth / 2, DrawWidth, DrawWidth); // 輪廓
+
+                        // Diamond
+                        g.DrawLine(p, x, 0, w - 1, y);
+                        g.DrawLine(p, w - 1, y, x, h - 1);
+                        g.DrawLine(p, x, h - 1, 0, y);
+                        g.DrawLine(p, 0, y, x, 0);
+                    }
+                    break;
+            }
+
+            return bmp;
+        }
+
+        public static Cursor CreateCursor(Bitmap bm, object size = null, object transparentColor = null)
+        {
+            if (size == null)
+            {
+                //bm = new Bitmap(bm);
+            }
+            else
+                bm = new Bitmap(bm, (Size)size);
+
+            if (transparentColor == null)
+                bm.MakeTransparent();
+            else
+                bm.MakeTransparent((Color)transparentColor);
+
+            return new Cursor(bm.GetHicon());
+        }
+
+        /// <summary>
+        /// 更新滑鼠游標
+        /// </summary>
+        public void UpdateCursor(Control ctrl_Cursor = null)
+        {
+            if (ctrl_Cursor == null)
+                ctrl_Cursor = this;
+
+            // 判斷是否為Windows Forms 內建游標類型
+            Type t = typeof(Cursors);
+            MemberInfo[] mis = t.GetMembers();
+            List<string> ListStr = new List<string>();
+            foreach (var m in mis)
+                ListStr.Add(m.Name);
+            enu_CursorImage type = (enu_CursorImage)cbx_Cursor.SelectedIndex;
+            if (ListStr.Contains(type.ToString())) // Windows Forms 內建游標類型
+            {
+                switch (type)
+                {
+                    case enu_CursorImage.Cross:
+                        ctrl_Cursor.Cursor = Cursors.Cross;
+                        break;
+                    case enu_CursorImage.Arrow:
+                        ctrl_Cursor.Cursor = Cursors.Arrow;
+                        break;
+                    case enu_CursorImage.Default:
+                        ctrl_Cursor.Cursor = Cursors.Default;
+                        break;
+                    case enu_CursorImage.SizeAll:
+                        ctrl_Cursor.Cursor = Cursors.SizeAll;
+                        break;
+                    case enu_CursorImage.Hand:
+                        ctrl_Cursor.Cursor = Cursors.Hand;
+                        break;
+                }
+            }
+            else // 自定義游標類型
+            {
+                float w = 2 * trackBar_width.Value;
+                Bitmap bm = CreateCursorImage(new Size((int)(5 * w), (int)(5 * w)), type, w, button_SetColor.BackColor);
+                //ctrl_Cursor.Cursor.Dispose();
+                ctrl_Cursor.Cursor = CreateCursor(bm);
+                //bm.Dispose();
+            }
+        }
+
+        #endregion
+
+        #region  縮放影像
+
+        private double[] ZoomRatios = new double[] { 12.5, 25, 50, 100, 200, 300, 400, 500, 600, 700, 800 };
+
+        private void trackBar_zoom_ValueChanged(object sender, EventArgs e)
+        {
+            // 更新顯示數值
+            int index = int.Parse(trackBar_zoom.Value.ToString());
+            label_zoom.Text = (ZoomRatios[index].ToString() + "%").PadLeft(5);
+
+            // 縮放影像
+            this.pictureBox_ImageShowForm.Width = (int)(Initial_pictureBox1Width * ZoomRatios[index] / 100);
+            this.pictureBox_ImageShowForm.Height = (int)(Initial_pictureBox1Height * ZoomRatios[index] / 100);
+
+            this.pictureBox_Dir2.Width = this.pictureBox_ImageShowForm.Width;
+            this.pictureBox_Dir2.Height = this.pictureBox_ImageShowForm.Height;
+        }
+
+        /// <summary>
+        /// 縮小
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_zoomOut_Click(object sender, EventArgs e)
+        {
+            if (trackBar_zoom.Value > trackBar_zoom.Minimum)
+                trackBar_zoom.Value -= 1;
+        }
+
+        /// <summary>
+        /// 放大
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_zoomIn_Click(object sender, EventArgs e)
+        {
+            if (trackBar_zoom.Value < trackBar_zoom.Maximum)
+                trackBar_zoom.Value += 1;
+        }
+
+        #endregion
+
+        #region menuStrip 事件
+
+        /// <summary>
+        /// 結束(✖)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 判斷是否已儲存
+            //if (LabelImage.b_saved == false)
+            //{
+            //    if (LabelImage.UnSaved_ProceedAnyway() == false)
+            //        return;
+            //}
+
+            DialogResult dialogResult = MessageBox.Show("確認是否關閉程式?", "此動作會關閉程式,請確認是否執行?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult != DialogResult.Yes)
+                return;
+            this.Close();
+        }
+
+        /// <summary>
+        /// 儲存設定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 儲存設定ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveSetting_Form f = new SaveSetting_Form())
+            {
+                f.Set_saveSetting(this.saveSetting);
+                f.Location = new Point(0, 0);
+                if (f.ShowDialog() == DialogResult.Yes) //【儲存】
+                {
+                    this.Update_Module(this.saveSetting.Index_Module);
+
+                    this.groupBox_ColorList.Visible = this.saveSetting.B_ColorList;
+                    this.Update_Dynamic_radioButton();
+
+                    // 判斷是否已儲存
+                    if (LabelImage.b_saved == false)
+                    {
+                        if (LabelImage.UnSaved_ProceedAnyway() == false)
+                            return;
+                    }
+
+                    // 更新此影像標註檔
+                    if (path_Images.Count > 0)
+                        this.Load_1_Img(path_Images[index_Image]);
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// 當前影像之標註檔是否存在
+        /// </summary>
+        private bool B_LabelXML_Exist { get; set; } = false;
+
+        private List<cls_Batch_ChangeColor> List_Batch_ChangeColor { get; set; } = new List<cls_Batch_ChangeColor>();
+
+        private clsProgressbar m_ProgressBar { get; set; } = new clsProgressbar();
+
+        private Thread backgroundThread { get; set; }
+
+        /// <summary>
+        /// 【標註顏色批次轉換】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 標註顏色批次轉換ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("確認是否執行【標註顏色批次轉換】? \n警告: 一旦執行即無法復原", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+                return;
+
+            if (this.folder_LoadBatch == "")
+            {
+                MessageBox.Show("請先執行【批次載入】", "溫馨提醒", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (Directory.Exists(this.folder_LoadBatch) == false)
+            {
+                MessageBox.Show("【批次載入】路徑不存在", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            try
+            {
+                // Initialize the thread that will handle the background process
+                //Thread backgroundThread = new Thread(
+                this.backgroundThread = new Thread(
+                    new ThreadStart(() =>
+                    {
+                        try
+                        {
+                            this.m_ProgressBar = new clsProgressbar();
+
+                            this.m_ProgressBar.FormClosedEvent2 += new clsProgressbar.FormClosedHandler2(this.SetFormClosed2_Batch_ChangeColor);
+
+                            this.m_ProgressBar.SetShowText("請等待【標註顏色批次轉換】......");
+                            this.m_ProgressBar.SetShowCaption("執行中......");
+                            this.m_ProgressBar.SetShowText_location(new Point(11, 1), new Size(387, 48));
