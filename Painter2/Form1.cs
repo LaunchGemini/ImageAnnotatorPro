@@ -1986,3 +1986,79 @@ namespace Painter2
                 結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 2);
             else if (結束ToolStripMenuItem.Text == "Quit(✖)")
                 結束ToolStripMenuItem.Text = 結束ToolStripMenuItem.Text.Substring(0, 4);
+
+            clsIniFile iniSystem = new clsIniFile(clsData.g_strSystemIniFilePath); // clsData.g_strSystemIniFilePath = Application.StartupPath + "\\INI\\System.ini"
+            ResetLanguage();
+            ChangeLanguage();
+            iniSystem.WriteValue("System", "Language", "English"); // 儲存目前使用之語言種類
+
+            /* 特殊字元補回 (因為無法存入INI檔) */
+            結束ToolStripMenuItem.Text += "(✖)";
+
+            if (path_Images.Count > 0)
+                Update_ImgInfo(path_Images[index_Image]);
+        }
+
+        #endregion
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 標註顏色批次轉換
+    /// </summary>
+    public class cls_Batch_ChangeColor
+    {
+        public cls_Batch_ChangeColor() { }
+
+        #region 參數
+
+        /// <summary>
+        /// 當前影像之標註檔是否存在
+        /// </summary>
+        public bool B_LabelXML_Exist { get; set; } = false;
+
+        /// <summary>
+        /// 是否已完成判斷 B_LabelXML_Exist
+        /// </summary>
+        public bool B_FinishJudge_LabelXML_Exist { get; set; } = false;
+
+        /// <summary>
+        /// 是否已做【標註顏色轉換】
+        /// </summary>
+        public bool B_Color_Changed { get; set; } = false;
+
+        /// <summary>
+        /// 是否已【儲存】
+        /// </summary>
+        public bool B_Saved { get; set; } = false;
+
+        #endregion
+
+        #region 方法
+
+        /// <summary>
+        /// 此影像是否完成【標註顏色轉換】 或 是否標註檔不存在無需做轉換
+        /// </summary>
+        /// <returns></returns>
+        public bool B_Finished()
+        {
+            if (this.B_FinishJudge_LabelXML_Exist)
+            {
+                if (this.B_LabelXML_Exist == false)
+                    return true;
+                else
+                {
+                    if (this.B_Color_Changed && this.B_Saved)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            else
+                return false;
+        }
+
+        #endregion
+    }
+}
