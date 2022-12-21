@@ -6,4 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{31AD6BEC-CA96-4B16-9C42-270F29CDAB37}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Propert
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Painter2</RootNamespace>
+    <AssemblyName>Painter2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment
