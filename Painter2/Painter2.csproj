@@ -58,4 +58,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="clsLanguage">
-      <HintPath>..\DLL\clsLanguage.
+      <HintPath>..\DLL\clsLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="Painter_DLL">
+      <HintPath>..\DLL\Painter_DLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include=
