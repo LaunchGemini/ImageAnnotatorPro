@@ -74,4 +74,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-  </I
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileSystem\FileSystem.cs" />
+    <Compile Include="FolderBrowserDialog_NewType.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Co
