@@ -91,4 +91,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SaveSetting\SaveSetting_Form.designer.cs">
-  
+      <DependentUpon>SaveSetting_Form.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </Embedd
