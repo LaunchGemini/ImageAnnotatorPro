@@ -106,4 +106,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
-    </Comp
+    </Compile>
+    <EmbeddedResource Include="SaveSetting\SaveSetting_Form.resx">
+      <DependentUpon>SaveSetting_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Gene
