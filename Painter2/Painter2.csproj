@@ -124,4 +124,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resour
+    <None Include="Resources\picture32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pai
