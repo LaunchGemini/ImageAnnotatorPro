@@ -133,4 +133,12 @@
     <None Include="Resources\-.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Pai
+    <None Include="Resources\Painter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Painter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CursorLocation.ico" />
+  </ItemGroup>
+  <ItemGroup
