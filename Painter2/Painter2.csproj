@@ -148,4 +148,13 @@
     <None Include="Resources\CursorLocation2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resou
+    <None Include="Resources\-_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSize.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im
