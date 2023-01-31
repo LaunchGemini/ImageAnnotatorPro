@@ -166,4 +166,12 @@
     <None Include="Resources\Pen.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None I
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.png" />
+  </ItemGroup>
+  <It
