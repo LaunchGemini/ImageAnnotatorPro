@@ -157,4 +157,13 @@
     <None Include="Resources\FileSize.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Im
+    <None Include="Resources\ImageSize.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImageSize_clip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None I
