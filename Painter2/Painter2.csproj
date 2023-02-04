@@ -174,4 +174,11 @@
   <ItemGroup>
     <None Include="Resources\eraser.png" />
   </ItemGroup>
-  <It
+  <ItemGroup>
+    <None Include="Resources\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle_fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser2.png" />
