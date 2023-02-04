@@ -182,3 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eraser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser2_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resou
