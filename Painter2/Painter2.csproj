@@ -190,4 +190,13 @@
     <None Include="Resources\eraser2_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resou
+    <None Include="Resources\folder32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Re
