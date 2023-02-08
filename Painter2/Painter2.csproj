@@ -199,4 +199,12 @@
     <None Include="Resources\delta.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Re
+    <None Include="Resources\iconfinder_document-save-as_118915.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prev.png" />
+  </ItemGroup>
+  <It
