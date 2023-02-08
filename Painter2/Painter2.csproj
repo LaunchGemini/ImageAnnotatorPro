@@ -207,4 +207,12 @@
   <ItemGroup>
     <None Include="Resources\prev.png" />
   </ItemGroup>
-  <It
+  <ItemGroup>
+    <None Include="Resources\next_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\重做_24.jpg" />
+ 
