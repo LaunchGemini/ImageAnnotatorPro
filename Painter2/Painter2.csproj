@@ -215,4 +215,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\重做_24.jpg" />
- 
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\復原_24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\儲存路徑_32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None 
