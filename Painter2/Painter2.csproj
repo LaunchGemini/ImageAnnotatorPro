@@ -223,4 +223,10 @@
     <None Include="Resources\儲存路徑_32.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None 
+    <None Include="Resources\ellipse_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ellipse_fill_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\任意範圍選取.png
