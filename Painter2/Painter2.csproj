@@ -238,4 +238,11 @@
     <None Include="Resources\close_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Inc
+    <None Include="Resources\language_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard_32.png" />
+  </ItemGroup>
