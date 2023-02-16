@@ -229,4 +229,13 @@
     <None Include="Resources\ellipse_fill_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\任意範圍選取.png
+    <None Include="Resources\任意範圍選取.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\矩形選取.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Inc
