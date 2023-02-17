@@ -246,3 +246,13 @@
   <ItemGroup>
     <None Include="Resources\keyboard_32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\原圖.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OFF_edited.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ON.png" />
+  </ItemGroup>
+  <Ite
