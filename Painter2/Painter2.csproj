@@ -255,4 +255,12 @@
   <ItemGroup>
     <None Include="Resources\ON.png" />
   </ItemGroup>
-  <Ite
+  <ItemGroup>
+    <None Include="Resources\原圖_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\標註影像_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Painter.ico" />
+    <None In
