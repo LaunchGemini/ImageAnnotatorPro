@@ -263,4 +263,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Painter.ico" />
-    <None In
+    <None Include="Resources\Color_32.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of th
