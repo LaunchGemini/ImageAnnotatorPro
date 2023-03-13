@@ -31,4 +31,8 @@ namespace Painter2.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-      
+        
+        /// <summary>
+        ///   傳回這個類別使用的快取的 ResourceManager 執行個體。
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.Edi
