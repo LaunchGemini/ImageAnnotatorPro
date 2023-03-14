@@ -35,4 +35,7 @@ namespace Painter2.Properties {
         /// <summary>
         ///   傳回這個類別使用的快取的 ResourceManager 執行個體。
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.Edi
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, nu
