@@ -41,4 +41,12 @@ namespace Painter2.Properties {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Painter2.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
-          
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+        ///   使用這個強類型資源類別的資源查閱。
+        /// </summary>
