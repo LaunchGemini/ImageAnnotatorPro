@@ -50,3 +50,5 @@ namespace Painter2.Properties {
         ///   覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
         ///   使用這個強類型資源類別的資源查閱。
         /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalizati
