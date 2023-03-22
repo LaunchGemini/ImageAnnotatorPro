@@ -72,4 +72,8 @@ namespace Painter2.Properties {
         
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
-        /// </summar
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_fill {
+            get {
+                object obj = ResourceManager.GetObject("circle_fill", resourceCulture);
+                return ((System
