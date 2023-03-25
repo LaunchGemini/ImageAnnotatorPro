@@ -83,4 +83,10 @@ namespace Painter2.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
-        internal static System.Drawing.
+        internal static System.Drawing.Bitmap close_32 {
+            get {
+                object obj = ResourceManager.GetObject("close_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+     
