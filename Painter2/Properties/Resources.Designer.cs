@@ -95,4 +95,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Color_32 {
             get {
-                object obj = R
+                object obj = ResourceManager.GetObject("Color_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitm
