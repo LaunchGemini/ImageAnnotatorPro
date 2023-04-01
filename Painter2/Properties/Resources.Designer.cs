@@ -125,4 +125,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap delta {
             get {
-                object obj = Reso
+                object obj = ResourceManager.GetObject("delta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 
