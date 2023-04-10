@@ -171,4 +171,8 @@ namespace Painter2.Properties {
         }
         
         /// <summary>
-        ///   查詢類型 System.Drawing.Bitma
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap eraser2_16 {
+            get {
+                object obj = ResourceManager.GetObject("eraser2_16", resourceCulture
