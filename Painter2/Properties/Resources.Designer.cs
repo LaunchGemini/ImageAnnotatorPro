@@ -165,4 +165,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap eraser2 {
             get {
-                object obj = ResourceManager.Get
+                object obj = ResourceManager.GetObject("eraser2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitma
