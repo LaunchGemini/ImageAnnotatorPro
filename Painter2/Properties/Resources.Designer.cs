@@ -195,4 +195,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap folder32 {
             get {
-              
+                object obj = ResourceManager.GetObject("folder32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawi
