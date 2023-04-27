@@ -225,4 +225,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap keyboard_32 {
             get {
-                object ob
+                object obj = ResourceManager.GetObject("keyboard_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   
