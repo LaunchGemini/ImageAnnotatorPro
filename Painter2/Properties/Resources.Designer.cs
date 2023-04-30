@@ -255,4 +255,11 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap minus2 {
             get {
-                object obj = R
+                object obj = ResourceManager.GetObject("minus2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+ 
