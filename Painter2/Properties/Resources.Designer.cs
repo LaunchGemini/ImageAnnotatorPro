@@ -275,4 +275,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap OFF_edited {
             get {
-   
+                object obj = ResourceManager.GetObject("OFF_edited", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 
