@@ -295,3 +295,9 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Painter {
             get {
+                object obj = ResourceManager.GetObject("Painter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
