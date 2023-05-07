@@ -301,3 +301,8 @@ namespace Painter2.Properties {
         }
         
         /// <summary>
+        ///   查詢類似 (圖示) 的類型 System.Drawing.Icon 當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Icon Painter1 {
+            get {
+                object obj = ResourceManager.GetObject("Painter
