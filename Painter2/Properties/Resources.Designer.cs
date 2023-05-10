@@ -325,4 +325,12 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap picture32 {
             get {
-                object obj = ResourceManager.GetObject(
+                object obj = ResourceManager.GetObject("picture32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static S
