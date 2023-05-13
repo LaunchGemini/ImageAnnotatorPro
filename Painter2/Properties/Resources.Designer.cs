@@ -345,4 +345,11 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap plus2 {
             get {
-                object obj = Resou
+                object obj = ResourceManager.GetObject("plus2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /
