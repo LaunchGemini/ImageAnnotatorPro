@@ -356,3 +356,11 @@ namespace Painter2.Properties {
         internal static System.Drawing.Bitmap previous_24 {
             get {
                 object obj = ResourceManager.GetObject("previous_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap
