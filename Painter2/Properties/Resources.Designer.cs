@@ -371,4 +371,8 @@ namespace Painter2.Properties {
         }
         
         /// <summary>
-        ///   查詢類型 System.D
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap rectangle_fill {
+            get {
+                object obj = ResourceManager.GetObject("rectangle_fill", resourceCultur
