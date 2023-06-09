@@ -395,4 +395,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap settings_32 {
             get {
-                object o
+                object obj = ResourceManager.GetObject("settings_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查
