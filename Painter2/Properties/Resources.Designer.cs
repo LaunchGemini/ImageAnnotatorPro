@@ -425,3 +425,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap 任意範圍選取 {
             get {
+                object obj = ResourceManager.GetObject("任意範圍選取", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 Sys
