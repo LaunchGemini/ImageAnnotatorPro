@@ -455,4 +455,10 @@ namespace Painter2.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap 原圖_24 {
             get {
-                ob
+                object obj = ResourceManager.GetObject("原圖_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.D
