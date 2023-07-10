@@ -448,4 +448,11 @@ namespace Painter2.Properties {
                 object obj = ResourceManager.GetObject("儲存路徑_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
-   
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 原圖_24 {
+            get {
+                ob
