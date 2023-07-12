@@ -473,4 +473,11 @@ namespace Painter2.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
-        internal static System.Drawing.Bi
+        internal static System.Drawing.Bitmap 標註影像_24 {
+            get {
+                object obj = ResourceManager.GetObject("標註影像_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+ 
