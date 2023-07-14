@@ -491,4 +491,9 @@ namespace Painter2.Properties {
         }
         
         /// <summary>
-        ///   查詢類型 System.Drawing.Bi
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 重做_24 {
+            get {
+                object obj = ResourceManager.GetObject("重做_24", resourceCulture);
+               
