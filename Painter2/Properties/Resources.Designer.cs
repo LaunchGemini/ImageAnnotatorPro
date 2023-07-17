@@ -496,4 +496,8 @@ namespace Painter2.Properties {
         internal static System.Drawing.Bitmap 重做_24 {
             get {
                 object obj = ResourceManager.GetObject("重做_24", resourceCulture);
-               
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+    }
+}
