@@ -408,3 +408,8 @@ namespace Painter2.SaveSetting
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             this.isWndMove = false;
+        }
+
+        #endregion
+    }
+}
