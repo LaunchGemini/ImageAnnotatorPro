@@ -425,3 +425,224 @@
             this.label_FileName_Image3.Location = new System.Drawing.Point(381, 235);
             this.label_FileName_Image3.Name = "label_FileName_Image3";
             this.label_FileName_Image3.Size = new System.Drawing.Size(89, 20);
+            this.label_FileName_Image3.TabIndex = 123;
+            this.label_FileName_Image3.Text = "資料夾名稱";
+            // 
+            // label_FileName_Image2
+            // 
+            this.label_FileName_Image2.AutoSize = true;
+            this.label_FileName_Image2.Enabled = false;
+            this.label_FileName_Image2.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_FileName_Image2.Location = new System.Drawing.Point(381, 200);
+            this.label_FileName_Image2.Name = "label_FileName_Image2";
+            this.label_FileName_Image2.Size = new System.Drawing.Size(89, 20);
+            this.label_FileName_Image2.TabIndex = 122;
+            this.label_FileName_Image2.Text = "資料夾名稱";
+            // 
+            // label_FileName_Image1
+            // 
+            this.label_FileName_Image1.AutoSize = true;
+            this.label_FileName_Image1.Enabled = false;
+            this.label_FileName_Image1.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_FileName_Image1.Location = new System.Drawing.Point(381, 165);
+            this.label_FileName_Image1.Name = "label_FileName_Image1";
+            this.label_FileName_Image1.Size = new System.Drawing.Size(89, 20);
+            this.label_FileName_Image1.TabIndex = 121;
+            this.label_FileName_Image1.Text = "資料夾名稱";
+            // 
+            // label_FileName_label
+            // 
+            this.label_FileName_label.AutoSize = true;
+            this.label_FileName_label.Enabled = false;
+            this.label_FileName_label.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_FileName_label.Location = new System.Drawing.Point(381, 95);
+            this.label_FileName_label.Name = "label_FileName_label";
+            this.label_FileName_label.Size = new System.Drawing.Size(89, 20);
+            this.label_FileName_label.TabIndex = 120;
+            this.label_FileName_label.Text = "資料夾名稱";
+            // 
+            // textBox_FileName_Image3
+            // 
+            this.textBox_FileName_Image3.Enabled = false;
+            this.textBox_FileName_Image3.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.textBox_FileName_Image3.Location = new System.Drawing.Point(481, 232);
+            this.textBox_FileName_Image3.Name = "textBox_FileName_Image3";
+            this.textBox_FileName_Image3.Size = new System.Drawing.Size(140, 29);
+            this.textBox_FileName_Image3.TabIndex = 126;
+            // 
+            // textBox_FileName_Image2
+            // 
+            this.textBox_FileName_Image2.Enabled = false;
+            this.textBox_FileName_Image2.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.textBox_FileName_Image2.Location = new System.Drawing.Point(481, 197);
+            this.textBox_FileName_Image2.Name = "textBox_FileName_Image2";
+            this.textBox_FileName_Image2.Size = new System.Drawing.Size(140, 29);
+            this.textBox_FileName_Image2.TabIndex = 127;
+            // 
+            // textBox_FileName_Image1
+            // 
+            this.textBox_FileName_Image1.Enabled = false;
+            this.textBox_FileName_Image1.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.textBox_FileName_Image1.Location = new System.Drawing.Point(481, 162);
+            this.textBox_FileName_Image1.Name = "textBox_FileName_Image1";
+            this.textBox_FileName_Image1.Size = new System.Drawing.Size(140, 29);
+            this.textBox_FileName_Image1.TabIndex = 128;
+            // 
+            // textBox_FileName_label
+            // 
+            this.textBox_FileName_label.Enabled = false;
+            this.textBox_FileName_label.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.textBox_FileName_label.Location = new System.Drawing.Point(481, 92);
+            this.textBox_FileName_label.Name = "textBox_FileName_label";
+            this.textBox_FileName_label.Size = new System.Drawing.Size(140, 29);
+            this.textBox_FileName_label.TabIndex = 129;
+            // 
+            // btn_LoadDefaultValues
+            // 
+            this.btn_LoadDefaultValues.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_LoadDefaultValues.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(166)))), ((int)(((byte)(137)))));
+            this.btn_LoadDefaultValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LoadDefaultValues.Font = new System.Drawing.Font("微軟正黑體", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_LoadDefaultValues.ForeColor = System.Drawing.Color.White;
+            this.btn_LoadDefaultValues.Location = new System.Drawing.Point(353, 465);
+            this.btn_LoadDefaultValues.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_LoadDefaultValues.Name = "btn_LoadDefaultValues";
+            this.btn_LoadDefaultValues.Size = new System.Drawing.Size(100, 28);
+            this.btn_LoadDefaultValues.TabIndex = 130;
+            this.btn_LoadDefaultValues.Text = "載入預設值";
+            this.btn_LoadDefaultValues.UseVisualStyleBackColor = false;
+            this.btn_LoadDefaultValues.Click += new System.EventHandler(this.btn_LoadDefaultValues_Click);
+            // 
+            // label_SavePath
+            // 
+            this.label_SavePath.AutoSize = true;
+            this.label_SavePath.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_SavePath.Location = new System.Drawing.Point(10, 60);
+            this.label_SavePath.Name = "label_SavePath";
+            this.label_SavePath.Size = new System.Drawing.Size(73, 20);
+            this.label_SavePath.TabIndex = 131;
+            this.label_SavePath.Text = "儲存路徑";
+            // 
+            // txb_SavePath
+            // 
+            this.txb_SavePath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txb_SavePath.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.txb_SavePath.Location = new System.Drawing.Point(90, 57);
+            this.txb_SavePath.Name = "txb_SavePath";
+            this.txb_SavePath.ReadOnly = true;
+            this.txb_SavePath.Size = new System.Drawing.Size(531, 29);
+            this.txb_SavePath.TabIndex = 132;
+            this.txb_SavePath.Click += new System.EventHandler(this.txb_SavePath_Click);
+            // 
+            // textBox_FileName_OrigImage
+            // 
+            this.textBox_FileName_OrigImage.Enabled = false;
+            this.textBox_FileName_OrigImage.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.textBox_FileName_OrigImage.Location = new System.Drawing.Point(481, 127);
+            this.textBox_FileName_OrigImage.Name = "textBox_FileName_OrigImage";
+            this.textBox_FileName_OrigImage.Size = new System.Drawing.Size(140, 29);
+            this.textBox_FileName_OrigImage.TabIndex = 137;
+            // 
+            // label_FileName_OrigImage
+            // 
+            this.label_FileName_OrigImage.AutoSize = true;
+            this.label_FileName_OrigImage.Enabled = false;
+            this.label_FileName_OrigImage.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_FileName_OrigImage.Location = new System.Drawing.Point(381, 130);
+            this.label_FileName_OrigImage.Name = "label_FileName_OrigImage";
+            this.label_FileName_OrigImage.Size = new System.Drawing.Size(89, 20);
+            this.label_FileName_OrigImage.TabIndex = 136;
+            this.label_FileName_OrigImage.Text = "資料夾名稱";
+            // 
+            // cbx_save_OrigImage
+            // 
+            this.cbx_save_OrigImage.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_save_OrigImage.AutoSize = true;
+            this.cbx_save_OrigImage.BackgroundImage = global::Painter2.Properties.Resources.OFF_edited;
+            this.cbx_save_OrigImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cbx_save_OrigImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_save_OrigImage.Location = new System.Drawing.Point(261, 122);
+            this.cbx_save_OrigImage.Name = "cbx_save_OrigImage";
+            this.cbx_save_OrigImage.Size = new System.Drawing.Size(65, 34);
+            this.cbx_save_OrigImage.TabIndex = 135;
+            this.cbx_save_OrigImage.Tag = "save_OrigImage";
+            this.cbx_save_OrigImage.Text = "         ";
+            this.cbx_save_OrigImage.UseVisualStyleBackColor = true;
+            this.cbx_save_OrigImage.CheckedChanged += new System.EventHandler(this.cbx_CheckedChanged);
+            // 
+            // lbl_save_OrigImage
+            // 
+            this.lbl_save_OrigImage.AutoSize = true;
+            this.lbl_save_OrigImage.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.lbl_save_OrigImage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbl_save_OrigImage.Location = new System.Drawing.Point(332, 132);
+            this.lbl_save_OrigImage.Name = "lbl_save_OrigImage";
+            this.lbl_save_OrigImage.Size = new System.Drawing.Size(38, 20);
+            this.lbl_save_OrigImage.TabIndex = 134;
+            this.lbl_save_OrigImage.Text = "OFF";
+            // 
+            // label_save_OrigImage
+            // 
+            this.label_save_OrigImage.AutoSize = true;
+            this.label_save_OrigImage.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_save_OrigImage.Location = new System.Drawing.Point(10, 130);
+            this.label_save_OrigImage.Name = "label_save_OrigImage";
+            this.label_save_OrigImage.Size = new System.Drawing.Size(137, 20);
+            this.label_save_OrigImage.TabIndex = 133;
+            this.label_save_OrigImage.Text = "儲存標註原始影像";
+            // 
+            // cbx_B_ColorList
+            // 
+            this.cbx_B_ColorList.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbx_B_ColorList.AutoSize = true;
+            this.cbx_B_ColorList.BackgroundImage = global::Painter2.Properties.Resources.OFF_edited;
+            this.cbx_B_ColorList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cbx_B_ColorList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_B_ColorList.Location = new System.Drawing.Point(261, 332);
+            this.cbx_B_ColorList.Name = "cbx_B_ColorList";
+            this.cbx_B_ColorList.Size = new System.Drawing.Size(65, 34);
+            this.cbx_B_ColorList.TabIndex = 140;
+            this.cbx_B_ColorList.Tag = "B_ColorList";
+            this.cbx_B_ColorList.Text = "         ";
+            this.cbx_B_ColorList.UseVisualStyleBackColor = true;
+            this.cbx_B_ColorList.CheckedChanged += new System.EventHandler(this.cbx_CheckedChanged);
+            // 
+            // lbl_B_ColorList
+            // 
+            this.lbl_B_ColorList.AutoSize = true;
+            this.lbl_B_ColorList.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.lbl_B_ColorList.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbl_B_ColorList.Location = new System.Drawing.Point(332, 342);
+            this.lbl_B_ColorList.Name = "lbl_B_ColorList";
+            this.lbl_B_ColorList.Size = new System.Drawing.Size(38, 20);
+            this.lbl_B_ColorList.TabIndex = 139;
+            this.lbl_B_ColorList.Text = "OFF";
+            // 
+            // label_ColorList
+            // 
+            this.label_ColorList.AutoSize = true;
+            this.label_ColorList.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label_ColorList.Location = new System.Drawing.Point(10, 340);
+            this.label_ColorList.Name = "label_ColorList";
+            this.label_ColorList.Size = new System.Drawing.Size(105, 20);
+            this.label_ColorList.TabIndex = 138;
+            this.label_ColorList.Text = "顏色快捷列表";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label1.Location = new System.Drawing.Point(5, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.TabIndex = 141;
+            this.label1.Text = "顏色快捷數量:";
+            // 
+            // panel_ColorList
+            // 
+            this.panel_ColorList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_ColorList.Controls.Add(this.nud_Count_ColorList);
+            this.panel_ColorList.Controls.Add(this.label1);
+            this.panel_ColorList.Enabled = false;
+            this.panel_ColorList.Location = new System.Drawing.Point(13, 370);
+            this.panel_ColorList.Name = "panel_ColorList";
