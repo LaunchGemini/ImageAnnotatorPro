@@ -646,3 +646,163 @@
             this.panel_ColorList.Enabled = false;
             this.panel_ColorList.Location = new System.Drawing.Point(13, 370);
             this.panel_ColorList.Name = "panel_ColorList";
+            this.panel_ColorList.Size = new System.Drawing.Size(610, 85);
+            this.panel_ColorList.TabIndex = 142;
+            // 
+            // nud_Count_ColorList
+            // 
+            this.nud_Count_ColorList.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.nud_Count_ColorList.Location = new System.Drawing.Point(114, 11);
+            this.nud_Count_ColorList.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nud_Count_ColorList.Name = "nud_Count_ColorList";
+            this.nud_Count_ColorList.Size = new System.Drawing.Size(57, 23);
+            this.nud_Count_ColorList.TabIndex = 239;
+            this.nud_Count_ColorList.Tag = "";
+            this.nud_Count_ColorList.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_Count_ColorList.ValueChanged += new System.EventHandler(this.nud_Count_ColorList_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.label2.Location = new System.Drawing.Point(381, 340);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 143;
+            this.label2.Text = "操作模式";
+            // 
+            // cbx_Module
+            // 
+            this.cbx_Module.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.cbx_Module.FormattingEnabled = true;
+            this.cbx_Module.Location = new System.Drawing.Point(481, 339);
+            this.cbx_Module.Name = "cbx_Module";
+            this.cbx_Module.Size = new System.Drawing.Size(140, 28);
+            this.cbx_Module.TabIndex = 144;
+            this.cbx_Module.Tag = "";
+            // 
+            // SaveSetting_Form
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(640, 500);
+            this.Controls.Add(this.cbx_Module);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel_ColorList);
+            this.Controls.Add(this.cbx_B_ColorList);
+            this.Controls.Add(this.lbl_B_ColorList);
+            this.Controls.Add(this.label_ColorList);
+            this.Controls.Add(this.textBox_FileName_OrigImage);
+            this.Controls.Add(this.label_FileName_OrigImage);
+            this.Controls.Add(this.cbx_save_OrigImage);
+            this.Controls.Add(this.lbl_save_OrigImage);
+            this.Controls.Add(this.label_save_OrigImage);
+            this.Controls.Add(this.txb_SavePath);
+            this.Controls.Add(this.label_SavePath);
+            this.Controls.Add(this.btn_LoadDefaultValues);
+            this.Controls.Add(this.textBox_FileName_label);
+            this.Controls.Add(this.textBox_FileName_Image1);
+            this.Controls.Add(this.textBox_FileName_Image2);
+            this.Controls.Add(this.textBox_FileName_Image3);
+            this.Controls.Add(this.label_ImageFormat_Save);
+            this.Controls.Add(this.label_ImageFormat_Load);
+            this.Controls.Add(this.label_FileName_Image3);
+            this.Controls.Add(this.label_FileName_Image2);
+            this.Controls.Add(this.label_FileName_Image1);
+            this.Controls.Add(this.label_FileName_label);
+            this.Controls.Add(this.cbx_save_label);
+            this.Controls.Add(this.lbl_save_label);
+            this.Controls.Add(this.cbx_Save_SameImageFormat);
+            this.Controls.Add(this.lbl_Save_SameImageFormat);
+            this.Controls.Add(this.label_Save_SameImageFormat);
+            this.Controls.Add(this.cbx_save_Image2);
+            this.Controls.Add(this.lbl_save_Image2);
+            this.Controls.Add(this.btn_Save);
+            this.Controls.Add(this.btn_Close);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cbx_Load_AllImageFormat);
+            this.Controls.Add(this.lbl_Load_AllImageFormat);
+            this.Controls.Add(this.label_Load_AllImageFormat);
+            this.Controls.Add(this.cbx_save_Image3);
+            this.Controls.Add(this.lbl_save_Image3);
+            this.Controls.Add(this.label_save_Image3);
+            this.Controls.Add(this.cbx_ImageFormat_Load);
+            this.Controls.Add(this.label_save_Image2);
+            this.Controls.Add(this.cbx_save_Image1);
+            this.Controls.Add(this.lbl_save_Image1);
+            this.Controls.Add(this.label_save_Image1);
+            this.Controls.Add(this.cbx_ImageFormat_Save);
+            this.Controls.Add(this.label_save_label);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "SaveSetting_Form";
+            this.Load += new System.EventHandler(this.SaveSetting_Form_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Icon)).EndInit();
+            this.panel_ColorList.ResumeLayout(false);
+            this.panel_ColorList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Count_ColorList)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.CheckBox cbx_save_Image1;
+        private System.Windows.Forms.Label lbl_save_Image1;
+        private System.Windows.Forms.Label label_save_Image1;
+        private System.Windows.Forms.ComboBox cbx_ImageFormat_Save;
+        private System.Windows.Forms.Label label_save_label;
+        private System.Windows.Forms.ComboBox cbx_ImageFormat_Load;
+        private System.Windows.Forms.Label label_save_Image2;
+        private System.Windows.Forms.CheckBox cbx_save_Image3;
+        private System.Windows.Forms.Label lbl_save_Image3;
+        private System.Windows.Forms.Label label_save_Image3;
+        private System.Windows.Forms.CheckBox cbx_Load_AllImageFormat;
+        private System.Windows.Forms.Label lbl_Load_AllImageFormat;
+        private System.Windows.Forms.Label label_Load_AllImageFormat;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_title;
+        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.PictureBox pictureBox_Icon;
+        private System.Windows.Forms.CheckBox cbx_save_Image2;
+        private System.Windows.Forms.Label lbl_save_Image2;
+        private System.Windows.Forms.CheckBox cbx_Save_SameImageFormat;
+        private System.Windows.Forms.Label lbl_Save_SameImageFormat;
+        private System.Windows.Forms.Label label_Save_SameImageFormat;
+        private System.Windows.Forms.CheckBox cbx_save_label;
+        private System.Windows.Forms.Label lbl_save_label;
+        private System.Windows.Forms.Label label_ImageFormat_Save;
+        private System.Windows.Forms.Label label_ImageFormat_Load;
+        private System.Windows.Forms.Label label_FileName_Image3;
+        private System.Windows.Forms.Label label_FileName_Image2;
+        private System.Windows.Forms.Label label_FileName_Image1;
+        private System.Windows.Forms.Label label_FileName_label;
+        private System.Windows.Forms.TextBox textBox_FileName_Image3;
+        private System.Windows.Forms.TextBox textBox_FileName_Image2;
+        private System.Windows.Forms.TextBox textBox_FileName_Image1;
+        private System.Windows.Forms.TextBox textBox_FileName_label;
+        private System.Windows.Forms.Button btn_LoadDefaultValues;
+        private System.Windows.Forms.Label label_SavePath;
+        private System.Windows.Forms.TextBox txb_SavePath;
+        private System.Windows.Forms.TextBox textBox_FileName_OrigImage;
+        private System.Windows.Forms.Label label_FileName_OrigImage;
+        private System.Windows.Forms.CheckBox cbx_save_OrigImage;
+        private System.Windows.Forms.Label lbl_save_OrigImage;
+        private System.Windows.Forms.Label label_save_OrigImage;
+        private System.Windows.Forms.CheckBox cbx_B_ColorList;
+        private System.Windows.Forms.Label lbl_B_ColorList;
+        private System.Windows.Forms.Label label_ColorList;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel_ColorList;
+        private System.Windows.Forms.NumericUpDown nud_Count_ColorList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbx_Module;
+    }
+}
