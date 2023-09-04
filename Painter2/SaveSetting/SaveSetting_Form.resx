@@ -77,4 +77,9 @@
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:at
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+     
