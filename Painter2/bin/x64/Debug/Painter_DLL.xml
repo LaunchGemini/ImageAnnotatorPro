@@ -1,0 +1,146 @@
+
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Painter_DLL</name>
+    </assembly>
+    <members>
+        <member name="T:Painter_DLL.DrawType">
+            <summary>
+            標註工具類型
+            </summary>
+        </member>
+        <member name="T:Painter_DLL.enu_ImageFormat">
+            <summary>
+            影像格式 (System.Drawing.Imaging.ImageFormat)
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.drawType">
+            <summary>
+            標註工具類型
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.color">
+            <summary>
+            標註顏色
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.halconColor" -->
+        <member name="P:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.Param">
+            <summary>
+            該標註工具物件
+            </summary>
+        </member>
+        <member name="M:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.cls_DrawTypeInfo_Constructor(Painter_DLL.DrawType,System.Drawing.Color,System.Single)">
+            <summary>
+            代替 建構子，初始化 之功能 
+            Note: 建構式有參數輸入時，會無法儲存到XML!
+            </summary>
+            <param name="drawType_"></param>
+            <param name="color_"></param>
+            <param name="w"></param>
+        </member>
+        <member name="M:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.ConvertParam">
+            <summary>
+            取得該標註工具物件
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Painter_DLL.cls_LabelImage.cls_DrawTypeInfo.SetParam(System.Drawing.Point,System.Object)">
+            <summary>
+            設定 Param
+            </summary>
+            <param name="pt">起始點</param>
+            <param name="params_">各標註工具類型對應參數</param>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_rectangle.W_Pen">
+            <summary>
+            畫筆寬度
+            </summary>
+        </member>
+        <member name="F:Painter_DLL.cls_LabelImage.cls_rectangle.Pt_UpperLeft">
+            <summary>
+            矩形左上角座標
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_rectangle.W">
+            <summary>
+            矩形寬
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_rectangle.H">
+            <summary>
+            矩形高
+            </summary>
+        </member>
+        <member name="F:Painter_DLL.cls_LabelImage.cls_rectangle_fill.Pt_UpperLeft">
+            <summary>
+            矩形左上角座標
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_rectangle_fill.W">
+            <summary>
+            矩形寬
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_rectangle_fill.H">
+            <summary>
+            矩形高
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_circle.W_Pen">
+            <summary>
+            畫筆寬度
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_circle.R">
+            <summary>
+            半徑
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_circle_fill.R">
+            <summary>
+            半徑
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_ellipse.W_Pen">
+            <summary>
+            畫筆寬度
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_ellipse.W">
+            <summary>
+            橢圓寬度一半
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_ellipse.H">
+            <summary>
+            橢圓高度一半
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_ellipse_fill.W">
+            <summary>
+            橢圓寬度一半
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_ellipse_fill.H">
+            <summary>
+            橢圓高度一半
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_selectRect.W_Pen">
+            <summary>
+            畫筆寬度
+            </summary>
+        </member>
+        <member name="F:Painter_DLL.cls_LabelImage.cls_selectRect.Pt_UpperLeft">
+            <summary>
+            矩形左上角座標
+            </summary>
+        </member>
+        <member name="P:Painter_DLL.cls_LabelImage.cls_selectRect.W">
+            <summary>
+            矩形寬
+            </summary>
+        </member>
