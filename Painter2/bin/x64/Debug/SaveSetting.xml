@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
 <cls_SaveSetting>
   <B_External_Open>false</B_External_Open>
-  <Extra_dirX>D:\X</Extra_dir
+  <Extra_dirX>D:\X</Extra_dirX>
+  <Extra_dirY>D:\Y</Extra_dirY>
+  <Folder_Save>C:\Users\user\Documents\Visual Studio 2015\Projects\Painter6_UsingPainterDLL_GitHub\Painter2\bin\x64\Debug</Folder_Save>
+  <B_save_label>true</B_save_label>
+  <Fil
