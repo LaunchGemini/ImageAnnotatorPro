@@ -9,4 +9,8 @@
   <B_save_OrigImage>true</B_save_OrigImage>
   <FileName_OrigImage>Original Image</FileName_OrigImage>
   <B_save_label_Image1>true</B_save_label_Image1>
-  <FileName_label_Image1>la
+  <FileName_label_Image1>label_Image1</FileName_label_Image1>
+  <B_save_label_Image2>true</B_save_label_Image2>
+  <FileName_label_Image2>label_Image2</FileName_label_Image2>
+  <B_save_label_Image3>true</B_save_label_Image3>
+  <FileName_label_Im
