@@ -5,4 +5,8 @@
   <Extra_dirY>D:\Y</Extra_dirY>
   <Folder_Save>C:\Users\user\Documents\Visual Studio 2015\Projects\Painter6_UsingPainterDLL_GitHub\Painter2\bin\x64\Debug</Folder_Save>
   <B_save_label>true</B_save_label>
-  <Fil
+  <FileName_label>label</FileName_label>
+  <B_save_OrigImage>true</B_save_OrigImage>
+  <FileName_OrigImage>Original Image</FileName_OrigImage>
+  <B_save_label_Image1>true</B_save_label_Image1>
+  <FileName_label_Image1>la
