@@ -16,4 +16,12 @@
   <FileName_label_Image3>label_Image3</FileName_label_Image3>
   <B_Load_AllImageFormat>true</B_Load_AllImageFormat>
   <ImageFormat_Load>bmp</ImageFormat_Load>
-  <B_Save_SameImageFormat>true</B_Save_SameImage
+  <B_Save_SameImageFormat>true</B_Save_SameImageFormat>
+  <ImageFormat_Save>bmp</ImageFormat_Save>
+  <B_ColorList>true</B_ColorList>
+  <halconColorArray>
+    <string>#FF8000FF</string>
+    <string>#FFFF80FF</string>
+    <string>#80FF80FF</string>
+    <string>#80FFFFFF</string>
+    <s
