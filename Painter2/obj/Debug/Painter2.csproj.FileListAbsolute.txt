@@ -2,4 +2,5 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\bin\Debug\
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\bin\Debug\Painter2.exe
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\bin\Debug\Painter2.pdb
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\obj\Debug\Painter2.csprojResolveAssemblyReference.cache
-C:\U
+C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\obj\Debug\Painter2.Form1.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\Painter2\Painter2\obj\Debug\Painter2.Properties.Resources.res
