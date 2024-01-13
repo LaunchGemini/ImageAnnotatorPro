@@ -15,4 +15,4 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\Painter2.Properties.Resources.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\Painter2.csproj.GenerateResource.Cache
 C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\Painter2.exe
-C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\Painte
+C:\Users\user\Documents\Visual Studio 2015\Projects\Painter3\Painter2\obj\Debug\Painter2.pdb
