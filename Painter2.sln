@@ -2,4 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Painter2", "Painter2\Painter2.csproj", "{31AD6BEC-CA96-4B16-9C42-270F29CDAB37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSo
