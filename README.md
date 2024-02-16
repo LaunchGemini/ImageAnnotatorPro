@@ -1,2 +1,2 @@
 # Description
-ImageAnnotatorPro is a GUI-based image annotation tool allowing marking of various object types (Pen,
+ImageAnnotatorPro is a GUI-based image annotation tool allowing marking of various object types (Pen, Eraser, Hollow Rectangle, Filled Rectangle, Hollow Circle, Filled Circle, Hollow Ellipse, Filled Ellipse, Rectangle ROI, Irregular Shape ROI) in images. It has applications in various deep learning fields includi
