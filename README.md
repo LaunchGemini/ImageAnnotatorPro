@@ -5,4 +5,10 @@ Created using C# and Windows Forms for its graphical user interface (GUI).
 
 # Software Environment
 | IDE                     | Visual Studio 2015     |
-| :-
+| :------------------     | :-----------------     |
+| .NET Framework          | .NET Framework 4.7.2   |
+| Programming Language    | C#                     |
+
+# GUI Demo:
+
+Demo videos can be seen b
