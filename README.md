@@ -11,4 +11,12 @@ Created using C# and Windows Forms for its graphical user interface (GUI).
 
 # GUI Demo:
 
-Demo videos can be seen b
+Demo videos can be seen by clicking the figures or links below:
+
+[Image Annotation Tool in C#-English Version](https://youtu.be/mpQwIr4hJY4)
+
+[Image Annotation Tool in C#-中文版](https://youtu.be/I1Y9xXxpHi8)
+
+# Contact Information:
+
+Any queries or su
