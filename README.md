@@ -19,4 +19,6 @@ Demo videos can be seen by clicking the figures or links below:
 
 # Contact Information:
 
-Any queries or su
+Any queries or suggestions regarding the project, code, or any other topic are always welcome. Happy to discuss and collaborate. 😄😄😄
+
+<a href="https://www.linkedin.com/in/launchgemini" target="_blank"><img src="http
