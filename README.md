@@ -21,4 +21,5 @@ Demo videos can be seen by clicking the figures or links below:
 
 Any queries or suggestions regarding the project, code, or any other topic are always welcome. Happy to discuss and collaborate. 😄😄😄
 
-<a href="https://www.linkedin.com/in/launchgemini" target="_blank"><img src="http
+<a href="https://www.linkedin.com/in/launchgemini" target="_blank"><img src="https://github.com/LaunchGemini/LaunchGemini/blob/master/Icon%20Image/linkedin_64.png" width="64"></a>
+<a href="https://www.youtube.com/channel/LaunchGemini" target="_blank"><img src="https://
